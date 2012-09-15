@@ -1,0 +1,31 @@
+-- RENAME THIS FILE TO "startup"
+-- ELSE IT WON'T WORK
+-- Redstone Input side
+rsInput = "top"
+
+-- Monitor Side
+monSide = "right"
+
+-- Program to run
+prog = "Lua_game.txt"
+
+-- Sleep times
+slpTime1 = "1"
+slpTime2 = "2"
+
+-- Main
+print("Waiting for signal...")
+while not signal do
+ status = rs.getInput(rsInput)
+ if status then
+  signal = "true"
+ end
+ sleep(slpTime1)
+end
+print("Running Program...")
+term.redirect(peripheral.wrap(monSide))
+shell.run(prog)
+print("DONE! rebooting...")
+sleep(slpTime2)
+os.reboot()
+-- End Main
