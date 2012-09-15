@@ -1,0 +1,29 @@
+rs.setOutput("back", true)
+while not signal do
+ status = rs.getInput("top")
+ if status then
+  signal = "true"
+ end
+ sleep(0,5)
+end
+cnt2 = 1000
+count = 20
+term.redirect(peripheral.wrap("right"))
+while count > 0 do
+ count = count - 1
+ term.clear()
+ term.setCursorPos(1,1)
+ write("STARTING FILM IN ")
+ while cnt2 > 0 do
+  cnt2 = cnt2 - 1
+  write(count)
+  write(" ")
+ end
+ sleep(1)
+ cnt2 = 1000
+end
+ sleep(1)
+ rs.setOutput("back", false)
+ shell.run("secret/alongtimeago")
+ rs.setOutput("back", true)
+os.reboot()
