@@ -1,5 +1,5 @@
 -- this is a game made by people
 -- This is Version Alpha 0.1
-ver = 0.1
+ver = "A0.1"
 print("Hello World")
 print()
