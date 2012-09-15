@@ -1,0 +1,2 @@
+term.restore() -- Sets the current output to be at the terminal. Good for restoring after use of monitor.
+term.redirect(peripheral.wrap([SIDE])) -- replace [SIDE] with desired side that the Computer should set output to. example Monitor.
