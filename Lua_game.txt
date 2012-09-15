@@ -2,4 +2,3 @@
 -- This is Version Alpha 0.1
 ver = "A0.1"
 print("Hello World")
-print()
