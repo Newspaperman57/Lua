@@ -1,34 +1,90 @@
-local arg = { ... }
+local arg = { ... } -- retreiving Arguments
+-- Functions Start
+function turnRight(arg)
+	if arg == nil then
+		print("if arg == nil TRUE")
+		arg = 1
+	end
+	print(arg)
+	while arg > 0 do
+		arg = arg - 1
+		if turtle.turnRight() then
+			if turn == "front" then
+				turn = "right"
+			elseif turn == "right" then
+				turn = "back"
+			elseif turn == "back" then
+				turn = "left"
+			elseif turn == "left" then
+				turn = "front"
+			end
+		else
+			return false
+		end
+	end
+	return true
+end
+function turnLeft()
+print("turnLeft")
+end
+-- Functions End
+-- Program Start
 -- Preparing Run
 if arg[1] == "help" or arg[1] == "Help" or arg[1] == "HELP" or arg[1] == "h" or arg[1] == "-h" or arg[1] == "-H" or arg[1] == "H" then
 -- This is the help message witch is activated when the 1. argument is one of the help arguments
-	print("This API is used for building a cube or plate.")
-	print("You must give the program the dimensions of the cube/plate that you wan't it to build. ex. ")
-	print("[name_on_program] 2 2 2")
-	print("This will make cube with 2 by 2 by 2 blocks if air inside.")
-	print("This program can also build a plate. if you wan't the program to build a plate just give it 2 arguments. ex:")
-	print("[name_on_program] 2 2")
-	print("Press [ENTER] to continue")
+	term.clear()
+	term.setCursorPos(1,1)
+	write("Press enter for next line")
+	io.read()
+	write("This API is used for building a ") 
+	io.read()
+	write("cube or plate. You must give the ")
+	io.read()
+	write("program. The dimensions of the cube")
+	io.read()
+	write("/plate thatyou wan't it to build. ")
+	io.read()
+	write("ex:[name_on_program] 2 2 2")
+	io.read()
+	write("This will make cube with 2 by 2 by")
+	io.read()
+	write("2 blocks if air inside. This")
+	io.read()
+	write("program can also build a plate. if")
+	io.read()
+	write("you wan't the program to build a")
+	io.read()
+	write("plate just give it 2 arguments")
+	io.read()
+	write("ex:[name_on_program] 2 2")
+	io.read()
+	write("This will make a plate with 2 by 2") 
+	io.read()
+	write("blocks. Remember to give the turtle")
+	io.read()
+	write("some materials to build of!")
+	io.read()
+	write("Other accepted arguments are:")
+	io.read()
+	print()
+	write("help, Help, HELP, h, -h, -H, H")
+	io.read()
+	write("All these shows this message.")
 	io.read()
 	term.clear()
-	print("This will make a plate with 2 by 2 blocks")
-	print("Remember to give the turtle some materials to build of!")
-	print("Other accepted arguments are:")
-	print("")
-	print("help, Help, HELP, h, -h, -H, H")
-	print("All these shows this message.")
-end
-if not arg[4] == nil then -- Checks if there is a 4. argument
+	term.setCursorPos(1,1)
+	return
+elseif arg[4] ~= nil then -- Checks if there is a 4. argument
 	print("ERROR: Too many arguments")
 	return
-end
-if arg[3] == nil then -- Checks if there is not a 3. argument
+elseif arg[3] == nil then -- Checks if there is not a 3. argument
 	print("ERROR: not enough arguments")
 	return
 end
 arg[1] = tonumber(arg[1]) -- Makes all the arguments to numbers {
 arg[2] = tonumber(arg[2])
 arg[3] = tonumber(arg[3]) -- }
+
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
@@ -49,4 +105,5 @@ turtle.up()
 while xPos < arg[1]
 	turtle.placeDown()
 end
+
 
