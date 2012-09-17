@@ -11,7 +11,6 @@ if arg[1] == "help" or arg[1] == "Help" or arg[1] == "HELP" or arg[1] == "h" or 
 	print("Press [ENTER] to continue")
 	io.read()
 	term.clear()
-	term
 	print("This will make a plate with 2 by 2 blocks")
 	print("Remember to give the turtle some materials to build of!")
 	print("Other accepted arguments are:")
