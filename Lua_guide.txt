@@ -13,3 +13,4 @@ local function receive()
 	end
 end
 ---------------------------------------
+os.computerID() -- Returns ID. Used for find out the computer ID of the computer it's executed on.
