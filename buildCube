@@ -99,11 +99,16 @@ print(arg[2])
 write("Height: ")
 print(arg[3]) 
 -- }
-turtle.forward() -- going to starting position
-turtle.up()
 
-while xPos < arg[1]
+turtle.up() -- going to starting position
+
+while xPos < arg[1] do
+	turtle.forward()
 	turtle.placeDown()
+	xPos = xPos + 1
 end
 
+function nextRow()
 
+
+end
