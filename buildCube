@@ -1,0 +1,44 @@
+local arg = { ... }
+-- Preparing Run
+if arg[1] == "help" or arg[1] == "Help" or arg[1] == "HELP" or arg[1] == "h" or arg[1] == "-h" or arg[1] == "-H" or arg[1] == "H" then
+-- This is the help message witch is activated when the 1. argument is one of the help arguments
+	print("This API is used for building a cube or plate.")
+	print("You must give the program the dimensions of the cube/plate that you wan't it to build. ex. ")
+	print("[name_on_program] 2 2 2")
+	print("This will make cube with 2 by 2 by 2 blocks if air inside.")
+	print("This program can also build a plate. if you wan't the program to build a plate just give it 2 arguments. ex:")
+	print("[name_on_program] 2 2")
+	print("Press [ENTER] to continue")
+	io.read()
+	term.clear()
+	term
+	print("This will make a plate with 2 by 2 blocks")
+	print("Remember to give the turtle some materials to build of!")
+	print("Other accepted arguments are:")
+	print("")
+	print("help, Help, HELP, h, -h, -H, H")
+	print("All these shows this message.")
+end
+if not arg[4] == nil then -- Checks if there is a 4. argument
+	print("ERROR: Too many arguments")
+	return
+end
+if arg[3] == nil then -- Checks if there is not a 3. argument
+	print("ERROR: not enough arguments")
+	return
+end
+arg[1] = tonumber(arg[1]) -- Makes all the arguments to numbers {
+arg[2] = tonumber(arg[2])
+arg[3] = tonumber(arg[3]) -- }
+xPos = 1 -- This is the positioning variables used coordinating the turtle {
+yPos = 1
+zPos = 1 -- }
+
+-- End of Preparing Run
+-- Main
+write("Length: ") -- Writing Dimensions to screen {
+print(arg[1])
+write("Width: ")
+print(arg[2])
+write("Height: ")
+print(arg[3]) -- }
