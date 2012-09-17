@@ -1,2 +1,16 @@
 term.restore() -- Sets the current output to be at the terminal. Good for restoring after use of monitor.
 term.redirect(peripheral.wrap([SIDE])) -- replace [SIDE] with desired side that the Computer should set output to. example Monitor.
+-- Insert this function to receive ANY signal that is broadcasted.
+--------------------------------------
+local function receive()
+	while 1 do
+		centerText("receiving. please wait...")
+		pc, msg = rednet.receive()
+		write("Computer ")
+		write(pc)
+		print(" said:")
+		print(msg)
+	end
+end
+---------------------------------------
+os.computerID() -- Returns ID. Used for find out the computer ID of the computer it's executed on.
