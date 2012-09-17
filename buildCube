@@ -29,15 +29,24 @@ end
 arg[1] = tonumber(arg[1]) -- Makes all the arguments to numbers {
 arg[2] = tonumber(arg[2])
 arg[3] = tonumber(arg[3]) -- }
-xPos = 1 -- This is the positioning variables used coordinating the turtle {
-yPos = 1
-zPos = 1 -- }
+xPos = 0 -- This is the positioning variables used coordinating the turtle {
+yPos = 0
+zPos = 0 -- }
 
 -- End of Preparing Run
 -- Main
-write("Length: ") -- Writing Dimensions to screen {
+-- Writing Dimensions to screen {
+write("Length: ")
 print(arg[1])
 write("Width: ")
 print(arg[2])
 write("Height: ")
-print(arg[3]) -- }
+print(arg[3]) 
+-- }
+turtle.forward() -- going to starting position
+turtle.up()
+
+while xPos < arg[1]
+	turtle.placeDown()
+end
+
