@@ -10,8 +10,8 @@ monSide = "right"
 prog = "Lua_game"
 
 -- Sleep times
--- slpTime1 = "1"
--- slpTime2 = "2"
+slpTime1 = 0,5
+slpTime2 = 1,5
 
 -- Main
 print("Waiting for signal...")
@@ -20,12 +20,12 @@ while not signal do -- Waiting for signal from chosen side
  if status then
   signal = "true" -- checking if a signal is received
  end
- sleep(1) -- to reduce lag
+ sleep(slpTime1) -- to reduce lag
 end
 print("Running Program...")
 term.redirect(peripheral.wrap(monSide)) -- redirecting ALL output to monitor
 shell.run(prog) -- Running Chosen Program
 print("DONE! rebooting...")
-sleep(2) -- get a short time to see what is happening
+sleep(slpTime2) -- get a short time to see what is happening
 os.reboot() -- Rebooting
 -- End Main
