@@ -1,0 +1,49 @@
+-- Variables
+	side1 = "right"
+	side2 = "bottom"
+	code1 = "Mathias"
+	code2 = "correct"
+	sleeptime1 = "3"
+	sleeptime1=tonumber(sleeptime1)
+	sleeptime2 = "1"
+	sleeptime2=tonumber(sleeptime2)
+	
+-- FUNCTIONS
+function answer_wrong()
+	print("U-autoriseret adgang. Forlad venligst området")
+	rs.setOutput(side2, true)
+	status, answer3=pcall(sleep, sleeptime2)
+	rs.setOutput(side2, false)
+	os.shutdown()
+end
+
+function answer1_correct()
+	term.clear()
+	print("Velkommen Mathias!")
+	--redstone.setOutput(side1, true)
+	status, answer2=pcall(read)
+	if answer2 == code2 then
+		term.clear()
+		write("Correct!")
+		redstone.setOutput(side1, true)
+		status, answer3=pcall(sleep, sleeptime1)
+		redstone.setOutput(side1, false)
+	else
+		answer_wrong()
+	end
+
+	--redstone.setOutput(side1, false)
+	os.shutdown()
+end
+--MAIN--------------------------------
+
+	term.clear()
+	print("Navn?")
+	status, answer = pcall(read)
+	if answer == code1 then
+		answer1_correct()
+	else 
+		answer_wrong()
+	end
+	status, status1 = pcall(sleep, sleeptime1)
+	os.shutdown()

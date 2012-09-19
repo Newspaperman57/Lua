@@ -1,0 +1,71 @@
+rednet.open("top")
+
+x=0
+y=0
+z=0
+lr = 0
+
+b=0
+
+function receive()
+ a,b,c=rednet.receive()
+ b=tonumber(b)
+ if b == 1085 then
+--  automation()
+   print("automation proces initiated")
+   rednet.broadcast("go")
+  x=tostring(x)
+  y=tostring(y)
+  z=tostring(z)
+  rednet.broadcast(x)
+  print(x)
+  sleep(1)
+  rednet.broadcast(y)
+  print(y)
+  sleep(1)
+  rednet.broadcast(z)
+  print(z)
+  sleep(1)
+  x=tonumber(x)
+  y=tonumber(y)
+  z=tonumber(z)
+  if lr == 0 then
+   if x == 50 then
+    y = 0
+	lr = 1
+	x = 0
+	x = x - 1
+   end
+   x = x + 1
+  end
+  if lr == 1 then
+   if y == 50 then
+    x = 0
+	z = z + 1
+	lr = 0
+	y = 0
+	y = y - 1
+   end
+   y = y + 1
+  end
+ end
+ b = 0
+end
+
+
+write("insert 1 for left or 2 for right : ")
+lr=io.read()
+lr = lr - 1
+if lr == 0 then
+ write("insert ammount of spaces to the left : ")
+ x=io.read()
+end
+if lr == 1 then
+ write("insert ammount of spaces to the right : ")
+ y=io.read()
+end
+write("insert forward coordinate : ")
+z=io.read()
+while 0 < 1 do
+ receive()
+end

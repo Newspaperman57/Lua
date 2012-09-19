@@ -1,0 +1,10 @@
+fs.copy("disk/worldEater","worldEater")
+rednet.open("right")
+print("My name is ")
+a = os.computerID()
+print(a)
+turtle.forward()
+turtle.forward()
+turtle.forward()
+shell.run("worldEater")
+
