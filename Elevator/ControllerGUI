@@ -8,9 +8,36 @@ floorname2 = "-2 Machines Room"
 floorname3 = "-3 Debug Elevator"
 blockHeight = 0 -- Must be giving by player until calculating function is done. The elevator is navigating with this number.
 function printf(num)
-	while num3 < totalFloors do
+	while num < totalFloors and num > -1 do
+		if num == 0 then
+			write("|*| "
+		else
+			write("| | ")
+		end
+		print(floorname0)
+		if num == 1 then
+			write("|*| "
+		else
+			write("| | ")
+		end
+		print(floorname1)
+		if num == 2 then
+			write("|*| "
+		else
+			write("| | ")
+		end
+		print(floorname2)
+		if num == 3 then
+			write("|*| "
+		else
+			write("| | ")
+		end
+		print(floorname3)
+		print("Use W or S to moe up and down")
+		input = io.read()
 		
-		num3 = num3 + 1
 	end
 end
-
+function frameDown(local arg1)
+	
+end
