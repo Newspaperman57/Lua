@@ -1,0 +1,16 @@
+
+num = 0 -- is the choosen floor in the GUI. Default: 0
+-- num2 is the current floor number. Planning to be calculated with length to computer at bottom.
+totalFloors = 4 -- is the number of total floors available
+floorname0 = "0  Ground Level"
+floorname1 = "-1 Storage room"
+floorname2 = "-2 Machines Room"
+floorname3 = "-3 Debug Elevator"
+blockHeight = 0 -- Must be giving by player until calculating function is done. The elevator is navigating with this number.
+function printf(num)
+	while num3 < totalFloors do
+		
+		num3 = num3 + 1
+	end
+end
+
