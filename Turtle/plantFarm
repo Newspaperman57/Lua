@@ -24,10 +24,18 @@ local arg = ( ... ) -- Check for Arguments
 arg = tonumber(arg)
 term.clear()
 term.setCursorPos(1,1)
+
+area = arg * arg
+amount = area / 2
+stacks = amount /64
+stacksInt = string.format("%u", stacks)
+remainder = amount % 64
+
 print("You have choosen ", arg) -- Checking if input is correct
-print("If correct press enter")
-print("To terminate press CTRL + T")
-print("a 30x30 farm will use 7 stacks and 3 sapplings")
+print("a ", arg, "X" , arg," farm will use ", amount, " saplings /n This corosponds to ", stacksInt, " stacks and ", remainder, " sapplings")
+
+print("When ready, press the ANY_KEY")
+print("To terminate press and hold CTRL + T")
 io.read() -- The user can press enter to continue
 arg = arg - 1
 ARG = arg
