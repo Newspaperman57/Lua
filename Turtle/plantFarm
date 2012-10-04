@@ -1,28 +1,31 @@
-
 local function forward(forwCnt)
 	if forwCnt == nil then
 		forwCnt = 1
 	end
 	while forwCnt > 0 do
 		if turtle.forward() == false then
+			if turtle.dig() == true then
+				forward()
+				break
+			end
 			print("ERROR!")
 			print("Press enter to continue")
 			io.read()
 			forward(forwCnt)
+		else
+			forwCnt = forwCnt - 1
 		end
-		forwCnt = forwCnt - 1
 	end
 end
 
 pnt1, cnt2, cnt3 = 1, 0, 0 --Counters and pointers
-
 local arg = ( ... ) -- Check for Arguments
 arg = tonumber(arg)
 term.clear()
 term.setCursorPos(1,1)
 print("You have choosen ", arg) -- Checking if input is correct
 print("If correct press enter")
-print("To terminate press and hold CTRL + T")
+print("To terminate press CTRL + T")
 io.read() -- The user can press enter to continue
 arg = arg - 1
 ARG = arg
@@ -40,16 +43,28 @@ while arg2 > -1 do
 	arg = ARG
 	if pnt1 == 0 then
 		pnt1 = 1
+		if answer == "debug" then
+		term.clear()
+		term.setCursorPos(1,1)
+		end
 		turtle.turnLeft()
-		turtle.forward()
+		forward()
 		turtle.turnLeft()
 	elseif pnt1 == 1 then
 		pnt1 = 0
+		if answer == "debug" then
+		term.clear()
+		term.setCursorPos(1,1)
+		end
 		turtle.turnRight()
-		turtle.forward()
+		forward()
 		turtle.turnRight()
 	end
 	arg2 = arg2 - 1
+	if answer == "debug" then
+		term.clear()
+		term.setCursorPos(1,1)
+		end
 end
 turtle.placeDown()
 if pnt1 == 1 then
