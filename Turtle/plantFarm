@@ -22,7 +22,7 @@ term.clear()
 term.setCursorPos(1,1)
 print("You have choosen ", arg) -- Checking if input is correct
 print("If correct press enter")
-print("To terminate press CTRL + T")
+print("To terminate press and hold CTRL + T")
 io.read() -- The user can press enter to continue
 arg = arg - 1
 ARG = arg
