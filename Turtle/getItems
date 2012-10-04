@@ -16,4 +16,3 @@ end
 arg1, arg2 = ( ... )
 arg1 = tonumber(arg1)
 getItems(arg1, arg2)
-
