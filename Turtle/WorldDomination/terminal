@@ -1,0 +1,42 @@
+x=0
+rednet.open("top")
+
+function call()
+ print("world domination project 1.2")
+ print("Welcome to the broadcast Terminal")
+ print("call -1- for _go_")
+ print("call -2- for _newUnit_")
+ x=io.read()
+ x=tonumber(x)
+ if x == 1 then
+  rednet.broadcast("go")
+  sleep(2)
+  print("unit awaiting instructions")
+  write("Left: ")
+  x=io.read()
+  rednet.broadcast(x)
+  sleep(1)
+  write("Right: ")
+  x=io.read()
+  rednet.broadcast(x)
+  sleep(1)
+  write("Forward: ")
+  x=io.read()
+  rednet.broadcast(x)
+  print("unit go")
+  sleep(2)
+
+-- clear function here
+  
+ end
+ if x == 2 then
+  rednet.broadcast("newUnit")
+ end
+
+ print("restarting program in 3")
+ sleep(3)
+end
+
+while 0 < 1 do
+ call()
+end

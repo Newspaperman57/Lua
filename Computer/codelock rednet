@@ -1,0 +1,9 @@
+function answer_wrong()
+write("Your answer ", answer," was wrong!")
+sleep(2)
+end
+function answer_correct()
+
+end
+answer = "svar"
+answer_wrong()
