@@ -1,29 +1,29 @@
 
-local function forward(forwCnt)
-	if forwCnt == nil then
+local function forward(forwCnt) -- This function is used to get the turtle go forward and handles errors
+	if forwCnt == nil then -- if no arg then default is 1 forward
 		forwCnt = 1
 	end
-	while forwCnt > 0 do
-		if turtle.forward() == false then
-			if turtle.dig() == true then
-				forward()
-				break
+	while forwCnt > 0 do -- Do this until the forward counter is 0 then end
+		if turtle.forward() == false then -- if turtle can't go forward: continue
+			if turtle.dig() == true then -- Try to dig way trough
+				forward(forwCnt) -- Try to go forward again
+				break -- when getting back from newly started forward function: end current function.
 			end
-			print("ERROR!")
+			print("ERROR!") -- If the turtle still can't go forward "throw" an error to the user
 			print("Press enter to continue")
 			io.read()
-			forward(forwCnt)
+			forward(forwCnt) -- when user have solved the problem try again to go forward
 		else
-			forwCnt = forwCnt - 1
+			forwCnt = forwCnt - 1 -- if the turtle can go forward: make counter 1 less and restart while loop
 		end
 	end
 end
 
 pnt1, cnt2, cnt3 = 1, 0, 0 --Counters and pointers
 local arg = ( ... ) -- Check for Arguments
-arg = tonumber(arg)
+arg = tonumber(arg) -- make arg to number
 term.clear()
-term.setCursorPos(1,1)
+term.setCursorPos(1,1) -- Clears screen
 
 area = arg * arg
 amount = area / 2

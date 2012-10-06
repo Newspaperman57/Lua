@@ -1,16 +1,16 @@
 function getItems(arg1, arg2)
- if arg2 == nil then
-  arg2 = "right"
- end
- while arg1 > 0 do
-  print(arg1)
-  rs.setOutput(arg2, true)
-  sleep(0.5)
-  rs.setOutput(arg2, false)
-  sleep(0.5)
-  arg1 = arg1 - 1
- end
- print(arg1)
+	if arg2 == nil then
+		arg2 = "right"
+	end
+	while arg1 > 0 do
+		print(arg1)
+		rs.setOutput(arg2, true)
+		sleep(0.5)
+		rs.setOutput(arg2, false)
+		sleep(0.5)
+		arg1 = arg1 - 1
+	end
+	print(arg1)
 end
 
 arg1, arg2 = ( ... )
