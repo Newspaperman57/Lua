@@ -72,7 +72,7 @@ fill = 0
 while not arg[count] == nil do
 	count = count + 1
 	if count == 1 then
-		arg[1] == tonumber(arg[1])
+		arg[1] = tonumber(arg[1])
 	elseif count == 2 then
 		arg[2] = tonumber(arg[2])
 	elseif count == 3 then
