@@ -2,6 +2,53 @@ local arg = { ... } -- retreiving Arguments
 -- initializing functions
 
 ---------------------------------------------------------
+function help()
+-- This is the help message witch is activated when one of the arguments is one of the help arguments
+	term.clear()
+	term.setCursorPos(1,1)
+	write("Press enter for next line")
+	io.read()
+	write("This API is used for building a ") 
+	io.read()
+	write("cube or plate. You must give the ")
+	io.read()
+	write("program. The dimensions of the cube")
+	io.read()
+	write("/plate thatyou wan't it to build. ")
+	io.read()
+	write("ex:[name_on_program] 2 2 2")
+	io.read()
+	write("This will make cube with 2 by 2 by")
+	io.read()
+	write("2 blocks if air inside. This")
+	io.read()
+	write("program can also build a plate. if")
+	io.read()
+	write("you wan't the program to build a")
+	io.read()
+	write("plate just give it 2 arguments")
+	io.read()
+	write("ex:[name_on_program] 2 2")
+	io.read()
+	write("This will make a plate with 2 by 2") 
+	io.read()
+	write("blocks. Remember to give the turtle")
+	io.read()
+	write("some materials to build of!")
+	io.read()
+	write("Other accepted arguments are:")
+	io.read()
+	print()
+	write("help, Help, HELP, h, -h, -H, H")
+	io.read()
+	write("All these shows this message.")
+	io.read()
+	print()
+	write("")
+	term.clear()
+	term.setCursorPos(1,1)
+	return
+end
 function turtleTurn()
 	if turn == "right" then -- Checks if the turtle is supposed to turn right
 		turtle.turnRight()
@@ -68,7 +115,7 @@ end
 -- Program Start
 -- Preparing Run
 count = 1
-fill = 0
+fill = false
 while not arg[count] == nil do
 	if count == 1 then
 		arg[count] = tonumber(arg[1])
@@ -95,51 +142,7 @@ while not arg[count] == nil do
 			error()
 		end
 	elseif arg[count] == "help" or arg[count] == "Help" or arg[count] == "HELP" or arg[count] == "h" or arg[count] == "-h" or arg[count] == "-H" or arg[count] == "H" then
-	-- This is the help message witch is activated when one of the arguments is one of the help arguments
-		term.clear()
-		term.setCursorPos(1,1)
-		write("Press enter for next line")
-		io.read()
-		write("This API is used for building a ") 
-		io.read()
-		write("cube or plate. You must give the ")
-		io.read()
-		write("program. The dimensions of the cube")
-		io.read()
-		write("/plate thatyou wan't it to build. ")
-		io.read()
-		write("ex:[name_on_program] 2 2 2")
-		io.read()
-		write("This will make cube with 2 by 2 by")
-		io.read()
-		write("2 blocks if air inside. This")
-		io.read()
-		write("program can also build a plate. if")
-		io.read()
-		write("you wan't the program to build a")
-		io.read()
-		write("plate just give it 2 arguments")
-		io.read()
-		write("ex:[name_on_program] 2 2")
-		io.read()
-		write("This will make a plate with 2 by 2") 
-		io.read()
-		write("blocks. Remember to give the turtle")
-		io.read()
-		write("some materials to build of!")
-		io.read()
-		write("Other accepted arguments are:")
-		io.read()
-		print()
-		write("help, Help, HELP, h, -h, -H, H")
-		io.read()
-		write("All these shows this message.")
-		io.read()
-		print()
-		write("")
-		term.clear()
-		term.setCursorPos(1,1)
-		return
+		help()
 	elseif arg[count] == "-f" or arg[count] == "-F" then
 		fill = true
 	else
@@ -152,7 +155,7 @@ xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
-Orientation = ("north")
+Orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
 
 -- End of Preparing Run
 -- Main
