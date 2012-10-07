@@ -148,9 +148,9 @@ while not arg[count] == nil do
 	break
 	end
 end
-0 = tonumber(xPos) -- This is the positioning variables used coordinating the turtle {
-0 = tonumber(yPos)
-0 = tonumber(zPos) -- }
+xPos = 0 -- This is the positioning variables used coordinating the turtle {
+yPos = 0
+zPos = 0 -- }
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
 Orientation = ("north")
 
