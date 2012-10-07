@@ -94,7 +94,6 @@ while not arg[count] == nil do
 			print("] = NIL")
 			error()
 		end
-	count = count + 1
 	elseif arg[count] == "help" or arg[count] == "Help" or arg[count] == "HELP" or arg[count] == "h" or arg[count] == "-h" or arg[count] == "-H" or arg[count] == "H" then
 	-- This is the help message witch is activated when one of the arguments is one of the help arguments
 		term.clear()
@@ -147,6 +146,7 @@ while not arg[count] == nil do
 	print("argument ", arg[count], "where not understanded. Please try again or  read the help section(-h)")
 	break
 	end
+	count = count + 1
 end
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
