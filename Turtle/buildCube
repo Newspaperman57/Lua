@@ -52,9 +52,13 @@ end
 function turtleTurn()
 	if turn == "right" then -- Checks if the turtle is supposed to turn right
 		turtle.turnRight()
+		debugF()
 		turtle.forward()
+		debugF()
 		turtle.placeDown()
+		debugF()
 		turtle.turnRight()
+		debugF()
 		turn = "left" -- Tells the turtle that next time it's supposed to turn left
 		if orientation == "north" then
 			orientation = "south"
@@ -92,14 +96,22 @@ function turtleTurn()
 	end
 end
 ---------------------------------------------------------
+function debugF()
+	print("xPos = ", xPos)
+	print("yPos = ", yPos)
+	print("zPOs = ", zPos)
+
+end
+---------------------------------------------------------
 function mainLoop()
-	turtle.up() -- going to starting position
+	turtle.up() -- Going to starting position
 	turtle.placeDown()
 	while yPos < arg2 do
 		while xPos < arg1 do
 			turtle.forward() -- Going forward
 			turtle.placeDown() --  And placing block underneath the turtle
 			xPos = xPos + 1
+			debugF()
 		end
 		yPos = yPos + 1
 		turtleTurn() -- Function to turn the turtle the right(correct) way
@@ -107,6 +119,7 @@ function mainLoop()
 			turtle.forward() -- Going forward
 			turtle.placeDown() --  And placing block underneath the turtle
 			xPos = xPos - 1
+			debugF()
 		end
 	end
 end
@@ -137,9 +150,9 @@ if not arg[1] == nil then
 	
 end
 
-xPos = 0 -- This is the positioning variables used coordinating the turtle {
-yPos = 0
-zPos = 0 -- }
+xPos = 1 -- This is the positioning variables used coordinating the turtle {
+yPos = 1
+zPos = 1 -- }
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
 orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
 
