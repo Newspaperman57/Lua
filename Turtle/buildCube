@@ -47,7 +47,7 @@ end
 ---------------------------------------------------------
 function mainLoop()
 	turtle.up() -- going to starting position
-	turtle.placeDown
+	turtle.placeDown()
 	while yPos < arg[2] do
 		while xPos < arg[1] do
 			turtle.forward() -- Going forward
