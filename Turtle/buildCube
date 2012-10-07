@@ -97,6 +97,8 @@ function turtleTurn()
 end
 ---------------------------------------------------------
 function debugF()
+	term.clear()
+	term.setCursorPos(1,1)
 	print("xPos = ", xPos)
 	print("yPos = ", yPos)
 	print("zPOs = ", zPos)
@@ -121,6 +123,7 @@ function mainLoop()
 			xPos = xPos - 1
 			debugF()
 		end
+		turtleTurn()
 	end
 end
 ---------------------------------------------------------
