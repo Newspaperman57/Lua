@@ -118,8 +118,8 @@ count = 1
 fill = false
 while not arg[count] == nil do
 	if count == 1 then
-		arg[count] = tonumber(arg[1])
-		if arg[count] == nil then
+		arg[1] = tonumber(arg[1])
+		if arg[1] == nil then
 			write("arg[")
 			write(count)
 			print("] = NIL")
@@ -127,7 +127,7 @@ while not arg[count] == nil do
 		end
 	elseif count == 2 then
 		arg[2] = tonumber(arg[2])
-		if arg[count] == nil then
+		if arg[2] == nil then
 			write("arg[")
 			write(count)
 			print("] = NIL")
@@ -135,7 +135,7 @@ while not arg[count] == nil do
 		end
 	elseif count == 3 then
 		arg[3] = tonumber(arg[3])
-		if arg[count] == nil then
+		if arg[3] == nil then
 			write("arg[")
 			write(count)
 			print("] = NIL")
