@@ -144,7 +144,7 @@ xPos = tonumber(xPos)
 yPos = tonumber(yPos)
 zPos = tonumber(zPos)
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
-Orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
+orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
 
 -- End of Preparing Run
 -- Main
