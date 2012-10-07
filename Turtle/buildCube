@@ -21,7 +21,7 @@ local function turtleTurn()
 			print("ERROR: turtle.turn(): No orientation variable ")
 			error()
 		end
-	elseif turn == "left" -- Checks if the turtle is supposed to turn left
+	elseif turn == "left" then -- Checks if the turtle is supposed to turn left
 		turtle.turnLeft()
 		turtle.forward()
 		turtle.placeDown()
