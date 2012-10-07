@@ -129,7 +129,7 @@ function mainLoop()
 end
 ---------------------------------------------------------
 function turtlePlaceDown()
-	if not turtle.placeDown() do
+	if not turtle.placeDown() then
 		sleep(1)
 		while not turtle.placeDown() do
 			print("ERROR: turtle.placeDown(): Couldn't place block underneath turtle. Press enter to continue")
@@ -139,7 +139,7 @@ function turtlePlaceDown()
 end
 ---------------------------------------------------------
 function turtleForward()
-	if not turtle.forward() do
+	if not turtle.forward() then
 		sleep(1)
 		if not turtle.dig() then
 			while not turtle.forward() do
