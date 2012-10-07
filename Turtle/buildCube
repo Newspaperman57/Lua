@@ -116,7 +116,7 @@ end
 -- Preparing Run
 
 fill = false
-if not arg[1] == nil do
+if not arg[1] == nil then
 
 	if arg[1] == "help" or arg[1] == "Help" or arg[1] == "HELP" or arg[1] == "h" or arg[1] == "-h" or arg[1] == "-H" or arg[1] == "H" then
 		help()
