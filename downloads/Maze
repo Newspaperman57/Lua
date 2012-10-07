@@ -1,0 +1,172 @@
+-- Turtle Maze Generator
+-- Version 1.0
+-- By JPiolho
+-- Feel free to copy and edit as long you credit the original author
+-- More Info @ http://bit.ly/zoxn6V
+ 
+local isDebug = false
+ 
+local mazeWidth = 6
+local mazeHeight = 6
+ 
+local curX = 1
+local curY = 1
+local currentFacing = 1
+ 
+local visited = {}
+local stack = {}
+ 
+local function FaceDirection(dir)
+        local i
+ 
+        if dir == 1 and currentFacing == 4 then
+                turtle.turnRight()
+                currentFacing = 1
+        end
+ 
+        if dir == 4 and currentFacing == 1 then
+                turtle.turnLeft()
+                currentFacing = 4
+        end
+ 
+        if dir > currentFacing then
+                while currentFacing < dir do
+                        turtle.turnRight()
+                        currentFacing = currentFacing + 1
+                end
+        end
+ 
+        if dir < currentFacing then
+                while currentFacing > dir do
+                        turtle.turnLeft()
+                        currentFacing = currentFacing - 1
+                end
+        end
+ 
+end
+ 
+local function MoveToCell(x,y)
+        if isDebug == true then
+                print("Moving [" .. curX .. "," .. curY .. "] to [" .. x .. "," .. y .. "]")
+                sleep(2)
+        end
+ 
+        if x > curX then
+                FaceDirection(2)
+        elseif x < curX then
+                FaceDirection(4)
+        elseif y > curY then
+                FaceDirection(1)
+        elseif y < curY then
+                FaceDirection(3)
+        end
+ 
+        turtle.dig()
+        --turtle.digUp()
+        --turtle.digDown()
+        turtle.forward()
+        turtle.dig()
+        --turtle.digUp()
+        --turtle.digDown()
+        turtle.forward()
+ 
+ 
+ 
+        curX = x
+        curY = y
+end
+ 
+ 
+local function IsVisited(x,y)
+ 
+        if x <= 0 or y <= 0 or x > mazeWidth or y > mazeHeight then return true end
+ 
+        local v
+ 
+        for _,v in pairs(visited) do
+                if v[1] == x and v[2] == y then
+                        return true
+                end
+        end
+ 
+        return false
+end
+ 
+ 
+local function AddVisited(x,y)
+        table.insert(visited,{x,y});
+end
+ 
+local function AddStack(x,y)
+        table.insert(stack,{x,y})
+end
+ 
+local function PopStack()
+        local val = stack[#stack]
+        table.remove(stack,#stack);
+ 
+        return val[1],val[2]
+end
+ 
+math.randomseed(os.time())
+ 
+AddVisited(curX,curY)
+ 
+ 
+local lastPercent
+ 
+repeat
+        local possibleVisits = {}
+ 
+        if IsVisited(curX-1,curY) == false then
+                table.insert(possibleVisits,{curX-1,curY})
+        end
+        if IsVisited(curX+1,curY) == false then
+                table.insert(possibleVisits,{curX+1,curY})
+        end
+        if IsVisited(curX,curY+1) == false then
+                table.insert(possibleVisits,{curX,curY+1})
+        end
+        if IsVisited(curX,curY-1) == false then
+                table.insert(possibleVisits,{curX,curY-1})
+        end
+ 
+ 
+ 
+        if #possibleVisits > 0 then
+ 
+                AddStack(curX,curY)
+ 
+                local targetX
+                local targetY
+ 
+                local i = math.random(1,#possibleVisits)
+ 
+                targetX = possibleVisits[i][1]
+                targetY = possibleVisits[i][2]
+ 
+                -- Remove the wall (lol)
+ 
+ 
+                AddVisited(targetX,targetY)
+ 
+                MoveToCell(targetX,targetY)
+ 
+        else
+                local targetX, targetY
+                targetX, targetY = PopStack()
+ 
+                MoveToCell(targetX,targetY)
+        end
+ 
+        local percent = math.floor((#visited / (mazeWidth * mazeHeight))*100)
+ 
+        if percent ~= lastPercent then
+                term.clear()
+                term.setCursorPos(1,1)
+ 
+                print("Progress: " .. percent .. "%")
+                lastPercent = percent
+        end
+ 
+until #stack == 0
