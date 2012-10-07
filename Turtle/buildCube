@@ -123,6 +123,7 @@ function mainLoop()
 			xPos = xPos - 1
 			debugF()
 		end
+		yPos = yPos + 1
 		turtleTurn()
 	end
 end
@@ -169,7 +170,4 @@ print("Height: ", arg[3])
 arg1 = tonumber(arg[1])
 arg2 = tonumber(arg[2])
 arg3 = tonumber(arg[3])
-arg1 = arg1 - 1
-arg2 = arg2 - 1
-arg3 = arg3 - 1
 mainLoop()
