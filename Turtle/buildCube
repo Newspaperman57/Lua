@@ -162,6 +162,6 @@ Orientation = ("north") -- Tells the turtle that it's pointing north(forward) wh
 -- Writing Dimensions to screen {
 print("Length: %u", arg[1])
 print("Width: %u", arg[2])
-print("Height: ", arg[3]) 
+print("Height: %u", arg[3]) 
 -- }
 mainLoop()
