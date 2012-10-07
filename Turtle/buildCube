@@ -2,7 +2,7 @@ local arg = { ... } -- retreiving Arguments
 -- Functions Start
 
 ---------------------------------------------------------
-local function turtleTurn()
+function turtleTurn()
 	if turn == "right" then -- Checks if the turtle is supposed to turn right
 		turtle.turnRight()
 		turtle.forward()
