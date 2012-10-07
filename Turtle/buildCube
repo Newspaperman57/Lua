@@ -53,7 +53,7 @@ function turtleTurn()
 	if turn == "right" then -- Checks if the turtle is supposed to turn right
 		turtle.turnRight()
 		debugF()
-		turtleForward
+		turtleForward()
 		debugF()
 		turtlePlaceDown()
 		debugF()
@@ -74,7 +74,7 @@ function turtleTurn()
 		end
 	elseif turn == "left" then -- Checks if the turtle is supposed to turn left
 		turtle.turnLeft()
-		turtleForward
+		turtleForward()
 		turtlePlaceDown()
 		turtle.turnLeft()
 		turn = "right" -- Tells the turtle that next time it's supposed to turn right
@@ -110,7 +110,7 @@ function mainLoop()
 	turtlePlaceDown()
 	while yPos < arg2 do
 		while xPos < arg1 do
-			turtleForward -- Going forward
+			turtleForward() -- Going forward
 			turtlePlaceDown() --  And placing block underneath the turtle
 			xPos = xPos + 1
 			debugF()
@@ -118,7 +118,7 @@ function mainLoop()
 		yPos = yPos + 1
 		turtleTurn() -- Function to turn the turtle the right(correct) way
 		while xPos > 1 do
-			turtleForward -- Going forward
+			turtleForward() -- Going forward
 			turtlePlaceDown() --  And placing block underneath the turtle
 			xPos = xPos - 1
 			debugF()
