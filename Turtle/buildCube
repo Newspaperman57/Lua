@@ -160,11 +160,8 @@ Orientation = ("north") -- Tells the turtle that it's pointing north(forward) wh
 -- End of Preparing Run
 -- Main
 -- Writing Dimensions to screen {
-write("Length: ")
-print(arg[1])
-write("Width: ")
-print(arg[2])
-write("Height: ")
-print(arg[3]) 
+print("Length: %u", arg[1])
+print("Width: %u", arg[2])
+print("Height: ", arg[3]) 
 -- }
 mainLoop()
