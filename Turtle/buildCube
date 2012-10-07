@@ -145,9 +145,9 @@ while not arg[count] == nil do
 		help()
 	elseif arg[count] == "-f" or arg[count] == "-F" then
 		fill = true
-	else
-	print("argument ", arg[count], "where not understanded. Please try again or  read the help section(-h)")
-	break
+	--else
+		--print("argument ", arg[count], "where not understanded. Please try again or  read the help section(-h)")
+		--break
 	end
 	count = count + 1
 end
