@@ -129,6 +129,7 @@ while not arg[count] == nil do
 	print("argument ", arg[count], "where not understanded. Please try again or  read the help section(-h)")
 	break
 	end
+end
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
