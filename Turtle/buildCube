@@ -114,43 +114,29 @@ end
 -- Functions initialized
 -- Program Start
 -- Preparing Run
-count = 1
+
 fill = false
-while not arg[count] == nil do
-	if count == 1 then
-		arg[1] = tonumber(arg[1])
-		if arg[1] == nil then
-			write("arg[")
-			write(count)
-			print("] = NIL")
-			error()
-		end
-	elseif count == 2 then
-		arg[2] = tonumber(arg[2])
-		if arg[2] == nil then
-			write("arg[")
-			write(count)
-			print("] = NIL")
-			error()
-		end
-	elseif count == 3 then
-		arg[3] = tonumber(arg[3])
-		if arg[3] == nil then
-			write("arg[")
-			write(count)
-			print("] = NIL")
-			error()
-		end
-	elseif arg[count] == "help" or arg[count] == "Help" or arg[count] == "HELP" or arg[count] == "h" or arg[count] == "-h" or arg[count] == "-H" or arg[count] == "H" then
+if not arg[1] == nil do
+
+	if arg[1] == "help" or arg[1] == "Help" or arg[1] == "HELP" or arg[1] == "h" or arg[1] == "-h" or arg[1] == "-H" or arg[1] == "H" then
 		help()
-	elseif arg[count] == "-f" or arg[count] == "-F" then
+	elseif arg[1] == "-f" or arg[1] == "-F" then
 		fill = true
-	--else
-		--print("argument ", arg[count], "where not understanded. Please try again or  read the help section(-h)")
-		--break
+	
+	else
+		arg[1] = tonumber(arg[1])
 	end
-	count = count + 1
+	
+	if not arg[2] == nil do
+		arg[2] = tonumber(arg[2])
+	end
+	
+	if not arg[3] == nil do
+		arg[3] = tonumber(arg[3])
+	end
+	
 end
+
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
