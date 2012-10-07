@@ -2,7 +2,7 @@ local arg = { ... } -- retreiving Arguments
 -- Functions Start
 
 ---------------------------------------------------------
-local function turtle.turn()
+local function turtleTurn()
 	if turn == "right" then -- Checks if the turtle is supposed to turn right
 		turtle.turnRight()
 		turtle.forward()
@@ -24,7 +24,7 @@ local function turtle.turn()
 	elseif turn == "left" -- Checks if the turtle is supposed to turn left
 		turtle.turnLeft()
 		turtle.forward()
-		turle.placeDown()
+		turtle.placeDown()
 		turtle.turnLeft()
 		turn = "right" -- Tells the turtle that next time it's supposed to turn right
 		if orientation == "north" then
@@ -55,7 +55,7 @@ function mainLoop()
 			xPos = xPos + 1
 		end
 		yPos = yPos + 1
-		turtle.turn() -- Function to turn the turtle the right(correct) way
+		turtleTurn() -- Function to turn the turtle the right(correct) way
 		while xPos > 1 do
 			turtle.forward() -- Going forward
 			turtle.placeDown() --  And placing block underneath the turtle
