@@ -95,8 +95,8 @@ end
 function mainLoop()
 	turtle.up() -- going to starting position
 	turtle.placeDown()
-	while yPos < arg[2] do
-		while xPos < arg[1] do
+	while yPos < arg2 do
+		while xPos < arg1 do
 			turtle.forward() -- Going forward
 			turtle.placeDown() --  And placing block underneath the turtle
 			xPos = xPos + 1
@@ -140,6 +140,9 @@ end
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
+xPos = tonumber(xPos)
+yPos = tonumber(yPos)
+zPos = tonumber(zPos)
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
 Orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
 
@@ -150,4 +153,7 @@ print("Length: ", arg[1])
 print("Width: ", arg[2])
 print("Height: ", arg[3]) 
 -- }
+arg1 = arg[1]
+arg2 = arg[2]
+arg3 = arg[3]
 mainLoop()
