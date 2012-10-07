@@ -1,35 +1,67 @@
 local arg = { ... } -- retreiving Arguments
 -- Functions Start
-function turnRight(arg)
-	if arg == nil then
-		print("if arg == nil TRUE")
-		arg = 1
-	end
-	print(arg)
-	while arg > 0 do
-		arg = arg - 1
-		if turtle.turnRight() then
-			if turn == "front" then
-				turn = "right"
-			elseif turn == "right" then
-				turn = "back"
-			elseif turn == "back" then
-				turn = "left"
-			elseif turn == "left" then
-				turn = "front"
-			end
+
+---------------------------------------------------------
+local function turtle.turn()
+	if turn == "right" then -- Checks if the turtle is supposed to turn right
+		turtle.turnRight()
+		turtle.forward()
+		turtle.placeDown()
+		turtle.turnRight()
+		turn = "left" -- Tells the turtle that next time it's supposed to turn left
+		if orientation == "north" then
+			orientation = "south"
+		elseif orientation == "south" then
+			orientation = "north"
+		elseif orientation == "west" then
+			orientation = "east"
+		elseif orientation == "east" then
+			orientation = "west"
 		else
-			return false
+			print("ERROR: turtle.turn(): No orientation variable ")
+			error()
 		end
+	elseif turn == "left" -- Checks if the turtle is supposed to turn left
+		turtle.turnLeft()
+		turtle.forward()
+		turle.placeDown()
+		turtle.turnLeft()
+		turn = "right" -- Tells the turtle that next time it's supposed to turn right
+		if orientation == "north" then
+			orientation = "south"
+		elseif orientation == "south" then
+			orientation = "north"
+		elseif orientation == "west" then
+			orientation = "east"
+		elseif orientation == "east" then
+			orientation = "west"
+		else
+			print("ERROR: turtle.turn(): No orientation variable ")
+			error()
+		end
+	else
+		print("ERROR: turle.turn = No turn variable available") -- in case that the turtle doesn't know
+		error() -- which way it should turn it throws an error.
 	end
-	return true
-end
-function turnLeft()
-print("turnLeft")
 end
 ---------------------------------------------------------
-function empty()
-
+function mainLoop()
+	turtle.up() -- going to starting position
+	turtle.placeDown
+	while yPos < arg[2] do
+		while xPos < arg[1] do
+			turtle.forward() -- Going forward
+			turtle.placeDown() --  And placing block underneath the turtle
+			xPos = xPos + 1
+		end
+		yPos = yPos + 1
+		turtle.turn() -- Function to turn the turtle the right(correct) way
+		while xPos > 1 do
+			turtle.forward() -- Going forward
+			turtle.placeDown() --  And placing block underneath the turtle
+			xPos = xPos - 1
+		end
+	end
 end
 ---------------------------------------------------------
 -- Functions End
@@ -100,6 +132,8 @@ while not arg[count] = nil do
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
+turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
+Orientation = ("north")
 
 -- End of Preparing Run
 -- Main
@@ -111,14 +145,4 @@ print(arg[2])
 write("Height: ")
 print(arg[3]) 
 -- }
-
-function mainLoop()
-	turtle.up() -- going to starting position
-	Turtle.placeDown
-
-	while xPos < arg[1] do
-		turtle.forward()
-		turtle.placeDown()
-		xPos = xPos + 1
-	end
-end
+mainLoop()
