@@ -154,6 +154,9 @@ end
 xPos = 0 -- This is the positioning variables used coordinating the turtle {
 yPos = 0
 zPos = 0 -- }
+xPos = tonumber(xPos)
+yPos = tonumber(yPos)
+zPos = tonumber(zPos)
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
 Orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
 
