@@ -127,11 +127,11 @@ if not arg[1] == nil then
 		arg[1] = tonumber(arg[1])
 	end
 	
-	if not arg[2] == nil do
+	if not arg[2] == nil then
 		arg[2] = tonumber(arg[2])
 	end
 	
-	if not arg[3] == nil do
+	if not arg[3] == nil then
 		arg[3] = tonumber(arg[3])
 	end
 	
