@@ -1,0 +1,185 @@
+local arg = { ... } -- retreiving Arguments
+-- initializing functions
+
+---------------------------------------------------------
+function help()
+-- This is the help message witch is activated when one of the arguments is one of the help arguments
+	term.clear()
+	term.setCursorPos(1,1)
+	write("Press enter for next line")
+	io.read()
+	write("This API is used for building a ") 
+	io.read()
+	write("cube or plate. You must give the ")
+	io.read()
+	write("program. The dimensions of the cube")
+	io.read()
+	write("/plate thatyou wan't it to build. ")
+	io.read()
+	write("ex:[name_on_program] 2 2 2")
+	io.read()
+	write("This will make cube with 2 by 2 by")
+	io.read()
+	write("2 blocks if air inside. This")
+	io.read()
+	write("program can also build a plate. if")
+	io.read()
+	write("you wan't the program to build a")
+	io.read()
+	write("plate just give it 2 arguments")
+	io.read()
+	write("ex:[name_on_program] 2 2")
+	io.read()
+	write("This will make a plate with 2 by 2") 
+	io.read()
+	write("blocks. Remember to give the turtle")
+	io.read()
+	write("some materials to build of!")
+	io.read()
+	write("Other accepted arguments are:")
+	io.read()
+	print()
+	write("help, Help, HELP, h, -h, -H, H")
+	io.read()
+	write("All these shows this message.")
+	io.read()
+	print()
+	write("")
+	term.clear()
+	term.setCursorPos(1,1)
+	return
+end
+function turtleTurn()
+	if turn == "right" then -- Checks if the turtle is supposed to turn right
+		turtle.turnRight()
+		debugF()
+		turtleForward()
+		debugF()
+		turtlePlaceDown()
+		debugF()
+		turtle.turnRight()
+		debugF()
+		turn = "left" -- Tells the turtle that next time it's supposed to turn left
+		if orientation == "north" then
+			orientation = "south"
+		elseif orientation == "south" then
+			orientation = "north"
+		elseif orientation == "west" then
+			orientation = "east"
+		elseif orientation == "east" then
+			orientation = "west"
+		else
+			print("ERROR: turtle.turn(): No orientation variable ")
+			error()
+		end
+	elseif turn == "left" then -- Checks if the turtle is supposed to turn left
+		turtle.turnLeft()
+		turtleForward()
+		turtlePlaceDown()
+		turtle.turnLeft()
+		turn = "right" -- Tells the turtle that next time it's supposed to turn right
+		if orientation == "north" then
+			orientation = "south"
+		elseif orientation == "south" then
+			orientation = "north"
+		elseif orientation == "west" then
+			orientation = "east"
+		elseif orientation == "east" then
+			orientation = "west"
+		else
+			print("ERROR: turtle.turn(): No orientation variable ")
+			error()
+		end
+	else
+		print("ERROR: turle.turn = No turn variable available") -- in case that the turtle doesn't know
+		error() -- which way it should turn it throws an error.
+	end
+end
+---------------------------------------------------------
+function debugF()
+	term.clear()
+	term.setCursorPos(1,1)
+	print("xPos = ", xPos)
+	print("yPos = ", yPos)
+	print("zPOs = ", zPos)
+
+end
+---------------------------------------------------------
+function mainLoop()
+	turtle.up() -- Going to starting position
+	turtlePlaceDown()
+	while yPos < arg2 do
+		while xPos < arg1 do
+			turtleForward() -- Going forward
+			turtlePlaceDown() --  And placing block underneath the turtle
+			xPos = xPos + 1
+			debugF()
+		end
+		yPos = yPos + 1
+		turtleTurn() -- Function to turn the turtle the right(correct) way
+		while xPos > 1 do
+			turtleForward() -- Going forward
+			turtlePlaceDown() --  And placing block underneath the turtle
+			xPos = xPos - 1
+			debugF()
+		end
+		yPos = yPos + 1
+		turtleTurn()
+	end
+end
+---------------------------------------------------------
+function turtlePlaceDown()
+	while not turtle.placeDown() do
+		sleep(0.5)
+	end
+end
+---------------------------------------------------------
+function turtleForward()
+	while not turtle.forward() do
+		sleep(0.5)
+	end
+end
+---------------------------------------------------------
+-- Functions initialized
+-- Program Start
+-- Preparing Run
+
+fill = false
+if not arg[1] == nil then
+
+	if arg[1] == "help" or arg[1] == "Help" or arg[1] == "HELP" or arg[1] == "h" or arg[1] == "-h" or arg[1] == "-H" or arg[1] == "H" then
+		help()
+	elseif arg[1] == "-f" or arg[1] == "-F" then
+		fill = true
+	
+	else
+		arg[1] = tonumber(arg[1])
+	end
+	
+	if not arg[2] == nil then
+		arg[2] = tonumber(arg[2])
+	end
+	
+	if not arg[3] == nil then
+		arg[3] = tonumber(arg[3])
+	end
+	
+end
+
+xPos = 1 -- This is the positioning variables used coordinating the turtle {
+yPos = 1
+zPos = 1 -- }
+turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
+orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
+
+-- End of Preparing Run
+-- Main
+-- Writing Dimensions to screen {
+print("Length: ", arg[1])
+print("Width: ", arg[2])
+print("Height: ", arg[3]) 
+-- }
+arg1 = tonumber(arg[1])
+arg2 = tonumber(arg[2])
+arg3 = tonumber(arg[3])
+mainLoop()
