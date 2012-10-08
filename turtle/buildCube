@@ -96,19 +96,30 @@ function turtleTurn()
 	end
 end
 ---------------------------------------------------------
+function turtleUp()
+	while not turtle.up() do
+		if not turtle.digUp() then
+			print("ERROR! turtleUp(); can't go up")
+			read()
+		end
+	end
+	return true
+end
+---------------------------------------------------------
 function debugF()
 	term.clear()
 	term.setCursorPos(1,1)
 	print("xPos = ", xPos)
 	print("zPos = ", zPos)
 	print("yPos = ", yPos)
-
 end
 ---------------------------------------------------------
 function mainLoop()
 	print("Mainloop")
 	turtle.up() -- Going to starting position
 	turtlePlaceDown()
+	while yPos < arg3 do
+		print("While loop 0")
 		while zPos < arg2 + 1 do
 			print("While loop 1")
 			while xPos < arg1 do
@@ -133,8 +144,15 @@ function mainLoop()
 			else
 				returnToBase()
 			end
-			print("End of while loop ")
+			print("End of while loop1 ")
 		end
+		turtleUp()
+		yPos = yPos + 1
+		turtle.turnRight()
+		turtle.turnRight()
+		zPos = arg2
+		print("While loop 0 -- end")
+	end
 	print("End of main loop. Exiting...")
 end
 ---------------------------------------------------------
