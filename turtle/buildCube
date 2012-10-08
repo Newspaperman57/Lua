@@ -108,24 +108,29 @@ end
 function mainLoop()
 	turtle.up() -- Going to starting position
 	turtlePlaceDown()
-	while yPos < arg2 do
-		while xPos < arg1 do
-			turtleForward() -- Going forward
-			turtlePlaceDown() --  And placing block underneath the turtle
-			xPos = xPos + 1
-			debugF()
+	--while zPos < arg3 do
+		while yPos < arg2 do
+			while xPos < arg1 do
+				turtleForward() -- Going forward
+				turtlePlaceDown() --  And placing block underneath the turtle
+				xPos = xPos + 1
+				debugF()
+			end
+			yPos = yPos + 1
+			turtleTurn() -- Function to turn the turtle the right(correct) way
+			while xPos > 1 do
+				turtleForward() -- Going forward
+				turtlePlaceDown() --  And placing block underneath the turtle
+				xPos = xPos - 1
+				debugF()
+			end
+			yPos = yPos + 1
+			turtleTurn()
 		end
-		yPos = yPos + 1
-		turtleTurn() -- Function to turn the turtle the right(correct) way
-		while xPos > 1 do
-			turtleForward() -- Going forward
-			turtlePlaceDown() --  And placing block underneath the turtle
-			xPos = xPos - 1
-			debugF()
-		end
-		yPos = yPos + 1
-		turtleTurn()
+	--[[
+	
 	end
+	]]
 end
 ---------------------------------------------------------
 function turtlePlaceDown()
