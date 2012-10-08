@@ -127,7 +127,7 @@ function mainLoop()
 				debugF()
 			end
 			zPos = zPos + 1
-			if zPos < arg2 then
+			if zPos < arg2 + 1 then
 				turtleTurn()
 			else
 				returnToBase()
