@@ -120,7 +120,7 @@ function mainLoop()
 	turtlePlaceDown()
 	while yPos < arg3 do
 		print("While loop 0")
-		while zPos < arg2 + 1 do
+		while zPos < arg2 do
 			print("While loop 1")
 			while xPos < arg1 do
 				print("while loop 2")
@@ -139,7 +139,7 @@ function mainLoop()
 				print("while loop 3")
 			end
 			zPos = zPos + 1
-			if zPos < arg2 + 1 then
+			if zPos < arg2 then
 				turtleTurn()
 			else
 				returnToBase()
@@ -153,7 +153,7 @@ function mainLoop()
 		print("While loop 0 -- end")
 		
 		
-		while zPos > arg2 + 1 do
+		while zPos > arg2 do
 			print("While loop 1")
 			while xPos < arg1 do
 				print("while loop 2")
@@ -172,7 +172,7 @@ function mainLoop()
 				print("while loop 3")
 			end
 			zPos = zPos - 1
-			if zPos < arg2 + 1 then
+			if zPos < arg2 then
 				turtleTurn()
 			else
 				returnToBase()
