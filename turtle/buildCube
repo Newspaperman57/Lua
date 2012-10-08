@@ -109,7 +109,7 @@ function mainLoop()
 	print("Mainloop")
 	turtle.up() -- Going to starting position
 	turtlePlaceDown()
-		while zPos not == arg2 do
+		while not zPos == arg2 do
 			print("While loop 1")
 			while xPos < arg1 do
 				print("while loop 2")
