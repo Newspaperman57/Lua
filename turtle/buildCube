@@ -109,7 +109,7 @@ function mainLoop()
 	print("Mainloop")
 	turtle.up() -- Going to starting position
 	turtlePlaceDown()
-		while zPos < arg2 do
+		while zPos < arg2 + 1 do
 			print("While loop 1")
 			while xPos < arg1 do
 				print("while loop 2")
@@ -118,13 +118,14 @@ function mainLoop()
 				xPos = xPos + 1
 				debugF()
 			end
-			zPos = zPos + 1
 			turtleTurn() -- Function to turn the turtle the right(correct) way
+			zPos = zPos + 1
 			while xPos > 1 do
 				turtleForward() -- Going forward
 				turtlePlaceDown() --  And placing block underneath the turtle
 				xPos = xPos - 1
 				debugF()
+				print("while loop 3")
 			end
 			zPos = zPos + 1
 			if zPos < arg2 + 1 then
@@ -132,7 +133,9 @@ function mainLoop()
 			else
 				returnToBase()
 			end
+			print("End of while loop ")
 		end
+	print("End of main loop. Exiting...")
 end
 ---------------------------------------------------------
 function turtlePlaceDown()
