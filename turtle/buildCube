@@ -106,11 +106,13 @@ function debugF()
 end
 ---------------------------------------------------------
 function mainLoop()
+	print("Mainloop")
 	turtle.up() -- Going to starting position
 	turtlePlaceDown()
-	--while zPos < arg3 do
 		while yPos < arg2 do
+			print("While loop 1")
 			while xPos < arg1 do
+				print("while loop 2")
 				turtleForward() -- Going forward
 				turtlePlaceDown() --  And placing block underneath the turtle
 				xPos = xPos + 1
@@ -127,10 +129,6 @@ function mainLoop()
 			yPos = yPos + 1
 			turtleTurn()
 		end
-	--[[
-	
-	end
-	]]
 end
 ---------------------------------------------------------
 function turtlePlaceDown()
