@@ -100,8 +100,8 @@ function debugF()
 	term.clear()
 	term.setCursorPos(1,1)
 	print("xPos = ", xPos)
+	print("zPos = ", zPos)
 	print("yPos = ", yPos)
-	print("zPOs = ", zPos)
 
 end
 ---------------------------------------------------------
@@ -109,7 +109,7 @@ function mainLoop()
 	print("Mainloop")
 	turtle.up() -- Going to starting position
 	turtlePlaceDown()
-		while yPos < arg2 do
+		while zPos < arg2 do
 			print("While loop 1")
 			while xPos < arg1 do
 				print("while loop 2")
@@ -118,7 +118,7 @@ function mainLoop()
 				xPos = xPos + 1
 				debugF()
 			end
-			yPos = yPos + 1
+			zPos = zPos + 1
 			turtleTurn() -- Function to turn the turtle the right(correct) way
 			while xPos > 1 do
 				turtleForward() -- Going forward
@@ -126,21 +126,31 @@ function mainLoop()
 				xPos = xPos - 1
 				debugF()
 			end
-			yPos = yPos + 1
-			turtleTurn()
+			zPos = zPos + 1
+			if zPos < arg2 then
+				turtleTurn()
+			else
+				returnToBase()
+			end
 		end
 end
 ---------------------------------------------------------
 function turtlePlaceDown()
 	while not turtle.placeDown() do
 		sleep(0.5)
+		print("ERROR: Turtle.placeDown; Couldn't place Block")
 	end
 end
 ---------------------------------------------------------
 function turtleForward()
 	while not turtle.forward() do
 		sleep(0.5)
+		print("ERROR: Turtle.forward; Couldn't go forward")
 	end
+end
+---------------------------------------------------------
+function returnToBase()
+	print("returnToBase() is not done but called!")
 end
 ---------------------------------------------------------
 -- Functions initialized
@@ -173,6 +183,7 @@ xPos = 1 -- This is the positioning variables used coordinating the turtle {
 yPos = 1
 zPos = 1 -- }
 turn = "right" -- Tells the turle that it's supposed to go right first time it's going to turn
+ending = false
 orientation = ("north") -- Tells the turtle that it's pointing north(forward) when starting
 
 -- End of Preparing Run
@@ -180,7 +191,7 @@ orientation = ("north") -- Tells the turtle that it's pointing north(forward) wh
 -- Writing Dimensions to screen {
 print("Length: ", arg[1])
 print("Width: ", arg[2])
-print("Height: ", arg[3]) 
+print("Height: ", arg[3])
 -- }
 arg1 = tonumber(arg[1])
 arg2 = tonumber(arg[2])
