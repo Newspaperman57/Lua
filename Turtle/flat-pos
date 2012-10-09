@@ -1,0 +1,4 @@
+print("Going into posision")
+turtle.forward()
+turtle.down()
+print("Ready")

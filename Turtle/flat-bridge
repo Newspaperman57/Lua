@@ -1,0 +1,16 @@
+print("This was a bridge?")
+a = 1 
+while a < 22 do
+turtle.dig()
+turtle.forward()
+a = a +1 
+end
+turtle.turnLeft()
+b = 1
+while b <5 do
+turtle.dig()
+turtle.forward()
+b = b +1
+end
+turtle.turnRight()
+print("Ready")
