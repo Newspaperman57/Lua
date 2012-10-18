@@ -1,0 +1,39 @@
+rednet.open("right") -- Opening rednet modem at right side
+---------------------------------------------------------------------
+function receive(arg)
+	local correctId = false
+	while not correctId do
+		local ID, MSG = turtle.receive(arg)
+		if ID == SenderID then
+			return true
+		end
+	end
+end
+---------------------------------------------------------------------
+
+---------------------------------------------------------------------
+ending = false -- If program is supposed to end of any reason, make ending = true
+senderID = 77 -- Sender id of computer that controls turtle
+
+while not ending do -- Ensures that the program will loop if not ending
+	while receive() do
+		print(MSG)
+		if MSG == forward then
+			while not turtle.forward() do
+				print("turtle.forward(): Couldn't move forward")
+				rednet.send(senderID, "ERROR")
+			end
+		elseif MSG == dig then
+			while not turtle.dig() do
+				print("turtle.dig(): Couldn't dig")
+				rednet.send(senderID, "ERROR")
+			end
+		else
+			while not turtle.turnRight() do
+				print("")
+				rednet.send(senderID, "ERROR")
+			end
+		end
+	end
+end
+rednet.close("right") -- closing modem again

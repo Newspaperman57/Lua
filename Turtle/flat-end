@@ -1,0 +1,8 @@
+print("No more work for me?")
+turtle.up()
+turtle.turnLeft()
+turtle.forward()
+turtle.forward()
+turtle.turnRight()
+turtle.forward()
+print("Ready")

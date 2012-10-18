@@ -1,0 +1,6 @@
+print("Going into posision")
+turtle.dig()
+turtle.forward()
+turtle.digDown()
+turtle.down()
+print("Ready")

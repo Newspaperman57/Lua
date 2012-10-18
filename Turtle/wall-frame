@@ -1,0 +1,23 @@
+turtle.up()
+c = 0
+while c < 5 do
+-- code
+a = 0
+while a < 4 do
+-- code
+b = 1 
+while b < 10 do
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+b = b +1
+end
+a = a +1
+turtle.turnRight()
+turtle.dig()
+end
+c = c +1
+turtle.digUp()
+turtle.up()
+end

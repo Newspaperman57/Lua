@@ -14,3 +14,4 @@ end
 os.computerID() -- Returns ID. Used for find out the computer ID of the computer it's executed on.
 ID -- Used to get ID of computer from terminal
 VAR = { ... } -- used to get Arguments. to call arg 1 call VAR[1] and 2 is like VAR[2]. You can rename VAR to whatever you wan't.
+event, key = os.pullEvent() -- event is ??. key is the pressed key.

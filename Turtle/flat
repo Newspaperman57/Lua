@@ -1,0 +1,71 @@
+print("Building flat")
+turtle.up()
+b = 0
+while b < 1 do
+
+a = 0
+while a < 20 do
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+a = a +1
+end 
+turtle.placeDown()
+turtle.turnRight()
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+turtle.turnRight()
+turtle.placeDown()
+b = b +1
+end
+c = 0
+while c < 20 do
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+c = c +1
+end
+turtle.turnLeft()
+turtle.dig()
+turtle.forward()
+turtle.digDown()
+turtle.turnLeft()
+b = 0
+while b < 1 do
+
+a = 0
+while a < 20 do
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+a = a +1
+end 
+turtle.turnRight()
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+turtle.turnRight()
+b = b +1
+end
+c = 0
+while c < 20 do
+turtle.digDown()
+turtle.placeDown()
+turtle.dig()
+turtle.forward()
+c = c +1
+end
+turtle.placeDown()
+turtle.turnLeft()
+turtle.dig()
+turtle.forward()
+turtle.digDown()
+turtle.down()
+turtle.turnLeft()
+print("Ready")
