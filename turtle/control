@@ -1,0 +1,194 @@
+--[[
+print("######################################")
+print("#                                    #")
+print("#                                    #")
+print("#                                    #")
+print("#                                    #")
+print("#                                    #")
+print("#                                    #")
+print("#                                    #")
+print("######################################")
+--]]
+
+function forward()
+	while not turtle.forward() do
+		turtle.attack()
+		sleep(1)
+	end
+end
+
+function backwards()
+	while not turtle.back() do
+		turtle.attack()
+		sleep(1)
+	end
+end
+
+function up()
+	while not turtle.up() do
+		turtle.attackUp()
+		sleep(1)
+	end
+end
+
+function down()
+	while not turtle.down() do
+		turtle.attackDown()
+		sleep(1)
+	end
+end
+
+function terminate()
+	sleep(0.1)
+	return nil
+end
+
+function refuel()
+	term.clear()
+	term.setCursorPos(1,1)
+	sleep(0.1)
+	
+	print("######################################")
+	print("#                                    #")
+	print("#                                    #")
+	print("# Please enter                       #")
+	print("# Amount of items to refuel:         #")
+	print("#                                    #")
+	print("#                                    #")
+	print("######################################")
+
+	term.setCursorPos(30,4)
+	refuel = read()
+	refuel = tonumber(refuel)
+	turtle.refuel(refuel)
+end
+
+function select()
+  print("select slot -octothorpe :")
+  local slotNum = 1
+  sleep(0.1)
+  slotNum = read()
+  slotNum = tonumber(slotNum)
+  turtle.select(slotNum)
+end
+
+function digDirection()
+	term.clear()
+	term.setCursorPos(1,1)
+	sleep(0.1)
+
+	print("######################################")
+	print("#                                    #")
+	print("#                         /\\         #")
+	print("#           Dig Up [W]    ||         #")
+	print("#  Dig Forward [SPACEBAR]   -->      #")
+	print("#         Dig Down [S]    ||         #")
+	print("#                         \\/         #")
+	print("#                                    #")
+	print("######################################")
+	
+	event, key = os.pullEvent()
+	if key == 17 then turtle.digUp() 				-- W
+		elseif key == 57 then turtle.dig()			-- Spacebar
+		elseif key == 31 then turtle.digDown()		-- S
+	end
+end
+
+function placeDirection()
+  term.clear()
+  term.setCursorPos(1,1)
+  sleep(0.1)
+  
+  print("######################################")
+  print("#                                    #")
+  print("#                           /\\       #")
+  print("#           Place Up [W]    ||       #")
+  print("#  Place Forward [SPACEBAR]   -->    #")
+  print("#         Place Down [S]    ||       #")
+  print("#                           \\/       #")
+  print("#                                    #")
+  print("######################################")
+
+  event, key = os.pullEvent()
+  if key == 17 then turtle.digUp() 				-- W
+    elseif key == 57 then turtle.dig()			-- Spacebar
+    elseif key == 31 then turtle.digDown()		-- S
+  end
+end
+
+function excavate()
+	term.clear()
+	term.setCursorPos(1,1)
+	sleep(0.1)
+	print("######################################")
+	print("#                                    #")
+	print("# Please enter number for the        #")
+	print("# excavating program.                #")
+	print("#                                    #")
+	print("# Enter a letter to go back :    	#")
+	print("#                                    #")
+	print("#                                    #")
+	print("######################################")
+	print("Please enter number for excavating program. Enter a non-number character to go back")
+	term.setCursorPos(31,6)
+	excav = read()
+	shell.run("excavate", excav)
+end
+
+-- (PROGRAM START) --
+
+totalPages = 2
+page = 1
+while 1 do
+  term.clear()
+  term.setCursorPos(1,1)
+--[[
+  if not MSG == nil then
+    print(MSG)
+    MSG = nil
+  end
+--]]
+  print("Turtle Fuel level: ", turtle.getFuelLevel())
+  if page == 1 then
+    print("######################################")
+    print("#  Movement  | Functions:            #")
+    print("#    [W]     |                       #")
+    print("#  [A] [D]   | Dig    [E]:[P] Place  #")
+    print("#    [S]     | Refuel [R]:[L] Chop   #")
+    print("#            |                       #")
+    print("# Up [SPACE] | Select [Q]:[C] Craft  #")
+    print("# Down [Z]   |                       #")
+    print("######################################")
+  elseif page == 2 then
+    print("######################################")
+    print("#                                    #")
+    print("#                                    #")
+    print("#   Excavate       [X]               #")
+    print("#   Terminate      [T]               #")
+    print("#                                    #")
+    print("#                                    #")
+    print("#                                    #")
+    print("######################################")
+  end
+  print("Use numbers to choose page")
+  print("Current page: ", page, "/", totalPages) 
+
+  event, key = os.pullEvent()
+  if key == 17 then forward() 					-- W
+    elseif key == 31 then backwards()			-- S
+    elseif key == 30 then turtle.turnLeft()		-- A
+    elseif key == 32 then turtle.turnRight()	-- D
+	elseif key == 57 then up()					-- SPACEBAR
+	elseif key == 44 then down()				-- Z
+    elseif key == 18 then digDirection() 		-- E
+    elseif key == 25 then placeDirection()		-- P
+    elseif key == 46 then turtle.craft()		-- C
+    elseif key == 19 then refuel()				-- R
+    elseif key == 38 then shell.run("chopTree")	-- L
+    elseif key == 45 then excavate()			-- X
+    elseif key == 16 then select()				-- Q
+	elseif key == 20 then terminate()			-- T
+    elseif key == 79 or key == 2 then page = 1  -- 1 OR [NUM_1]
+    elseif key == 80 or key == 3 then page = 2	-- 2 OR [NUM_2]
+  end
+end
