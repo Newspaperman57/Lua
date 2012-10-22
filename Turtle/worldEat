@@ -1,0 +1,85 @@
+function full()
+  while turtle.getItemSpace(16) < 32 do
+    sleep(3)
+  end
+  turtle.select(1)
+end
+
+function nill()
+  while c > 1 do
+    c = c - 1
+  end
+end
+
+function times()
+  if c == 3 then
+    a = a + 1
+    turtle.dig()
+    while not turtle.forward() do turtle.dig() sleep(1) end
+    down()
+    up()
+    nill()
+  end
+  c = c +1
+end  
+
+function getFuel()
+  while turtle.getFuelLevel() < 200 do
+    for i = 1,16 do
+      turtle.select(i)
+      turtle.refuel(1)	
+    end
+  end
+end
+
+function up()
+  full()
+  getFuel()
+  upat = 0
+    while upat < 10 do
+      while not turtle.up() do
+        turtle.digUp() 
+        turtle.attackUp()
+      end
+      upat = upat + 1
+    end
+    turtle.dig()
+  while upat > 1 do
+    upat = upat - 1
+  end
+end
+
+function down()
+  downs = 0
+  while downs < 10 do
+    turtle.digDown()
+      while not turtle.down() do
+      turtle.attackDown()
+    end
+	downs = downs + 1
+  end
+  while downs > 1 do
+    downs = downs - 1
+  end
+end
+
+function forward()
+  while b > 0 do
+    while not turtle.forward() do 
+	  turtle.dig() 
+	  sleep(1) 
+	end
+    down()
+    up()
+    b = b -1
+  end
+  times()
+  turtle.turnRight()
+  turtle.dig()
+end
+c = 0
+a = 1
+while true do 
+  b = a
+  forward()
+end
