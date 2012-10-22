@@ -50,6 +50,8 @@ function bonemeal()
         term.clear()
         term.setCursorPos(1,3)
         print("||  No more bone meal? D:         ||")
+        print("||  Please put some bone meal in  ||")
+        print("||  slot Nr. 16                   ||")
         sleep(1)
       end
       elseif not turtle.place() then
@@ -60,7 +62,7 @@ function bonemeal()
         print("||  Can somepony please hand me   ||")
         print("||  Some saplings?                ||")
         print("||  Spruce saplings in slot       ||")
-        print("||  Nr. 16 please :)              ||")
+        print("||  Nr. 1 please :)               ||")
         sleep(1)
       end
     end
