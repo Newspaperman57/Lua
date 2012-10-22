@@ -1,3 +1,14 @@
+function full()
+  while turtle.getItemSpace(15) < 32 do
+    term.clear()
+	term.setCursorPos(1,3)
+    print("||  Please Take wood from slot 3  ||")
+    print("||  to 15.                        ||")
+    sleep(1)
+  end
+  term.clear()
+end
+
 function moarleaves()
   if turtle.detect() then
   turtle.dig()
@@ -30,7 +41,7 @@ function bonemeal()
   while not turtle.detect() do
     turtle.select(1)
     if turtle.place() then
-      turtle.select(15)
+      turtle.select(16)
       while not turtle.place() do
         term.clear()
         term.setCursorPos(1,1)
@@ -45,7 +56,7 @@ function bonemeal()
         print("||  Can somepony please hand me   ||")
         print("||  Some saplings?                ||")
         print("||  Spruce saplings in slot       ||")
-        print("||  Nr. 15 please :)              ||")
+        print("||  Nr. 16 please :)              ||")
         sleep(1)
       end
     end
@@ -56,10 +67,14 @@ function bonemeal()
 -- Ting og sager
 
 while 1 do
+  full()
   bonemeal()
   getFuel()
   turtle.dig()
-  turtle.forward()
+  while not turtle.forward() do
+    turtle.attack()
+    sleep(1)
+  end
   while turtle.detectUp() do
     turtle.digUp()
     turtle.up()
@@ -72,11 +87,14 @@ while 1 do
     moarleaves()
   end
 
-  while turtle.down() do
+  while not turtle.detectDown() do
     turtle.down()
   end
-  turtle.back()
+  while not turtle.back() do
+    sleep(1)
+  end
   term.clear()
   term.setCursorPos(1,1)
+  print("Current fuel level remaining: " ,turtle.getFuelLevel())
   sleep(1)
 end
