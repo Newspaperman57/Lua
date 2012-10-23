@@ -6,13 +6,14 @@ function moarBoneMeal()
       turtle.select(16)
 	  term.clear()
 	  term.setCursorPos(1,3)
-      print("||  Taking Bone Meal from chest.   ||")
+      print("||  If this is not a chest then    ||")
+      print("||  please remove it, thank you.   ||")
       turtle.drop()
 	  turtle.suck()
 	  turtle.select(1)
       else
 	  term.clear()
-	  term.setCursorPos(1,3)
+	  term.setCursorPos(1,2)
       print("||  Searching for Bone Meal, in   ||")
       print("||  a chest that might or might   ||")
       print("||  not be there.                 ||")
@@ -20,11 +21,11 @@ function moarBoneMeal()
       turtle.turnRight()
 	  turtle.dig()
       while not turtle.forward() do
-	    sleep(1)
+	    sleep(0.2)
 	  end
       turtle.turnRight()
       while not turtle.back() do
-	    sleep(1)
+	    sleep(0.2)
 	  end
       moarBoneMeal()
     end
@@ -89,19 +90,21 @@ function getFuel()
 end
 
 function bonemeal()
+  moarBoneMeal()
   while not turtle.detect() do
     turtle.select(1)
     if turtle.place() then
       turtle.select(16)
-      while not turtle.place() do
+      if not turtle.place() then
         term.clear()
         term.setCursorPos(1,3)
-		moarBoneMeal()
 		turtle.select(16)
         print("||  No more bone meal? D:         ||")
         print("||  Please put some bone meal in  ||")
         print("||  slot Nr. 16                   ||")
         sleep(1)
+		turtle.drop()
+		moarBoneMeal()
       end
       elseif not turtle.place() then
         term.clear()
