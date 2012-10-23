@@ -66,14 +66,14 @@ function moarleaves()
 end
 
 function getFuel()
+  while turtle.getItemSpace(1) < 32 do
+    turtle.refuel(1)
+    sleep(0,05)
+  end
   while turtle.getFuelLevel() <100 do 
+    turtle.select(1)
     turtle.select(2)
     turtle.refuel(1)
-    turtle.select(1)
-    while turtle.getItemSpace(1) < 32 do
-      turtle.refuel(1)
-	  sleep(0,2)
-    end
     sleep(1)
     term.clear()
     term.setCursorPos(1,3)
@@ -110,7 +110,7 @@ function bonemeal()
       end
       elseif not turtle.place() then
         term.clear()
-        term.setCursorPos(1,1)
+        term.setCursorPos(1,3)
         print("||  Not able to place sapling..   ||")
         print("||                                ||")
         print("||  Can somepony please hand me   ||")
