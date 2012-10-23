@@ -1,13 +1,60 @@
+function moarBoneMeal()
+  if turtle.getItemSpace(16) == 64 then
+  turtle.turnLeft()
+  turtle.turnLeft()
+    if turtle.detect() then
+      turtle.select(16)
+	  term.clear()
+	  term.setCursorPos(1,3)
+      print("||  Taking Bone Meal from chest.   ||")
+      turtle.drop()
+	  turtle.suck()
+	  turtle.select(1)
+      else
+	  term.clear()
+	  term.setCursorPos(1,3)
+      print("||  Searching for Bone Meal, in   ||")
+      print("||  a chest that might or might   ||")
+      print("||  not be there.                 ||")
+      turtle.turnRight()
+      turtle.turnRight()
+	  turtle.dig()
+      while not turtle.forward() do
+	    sleep(1)
+	  end
+      turtle.turnRight()
+      while not turtle.back() do
+	    sleep(1)
+	  end
+      moarBoneMeal()
+    end
+    turtle.turnRight()
+    turtle.turnRight()
+  end
+end 
+
+function full2()
+  local argument = "arg"
+  if arg == 1 then
+    for i = 3,15 do
+      turtle.select(i)
+      turtle.drop()
+    end
+  end
+end
+  
 function full()
+  full2()
   while turtle.getItemSpace(15) < 32 do
     term.clear()
-	term.setCursorPos(1,3)
+    term.setCursorPos(1,3)
     print("||  Please Take wood from slot 3  ||")
     print("||  to 15.                        ||")
     sleep(1)
   end
   term.clear()
 end
+
 
 function moarleaves()
   if turtle.detect() then
@@ -49,6 +96,8 @@ function bonemeal()
       while not turtle.place() do
         term.clear()
         term.setCursorPos(1,3)
+		moarBoneMeal()
+		turtle.select(16)
         print("||  No more bone meal? D:         ||")
         print("||  Please put some bone meal in  ||")
         print("||  slot Nr. 16                   ||")
@@ -57,7 +106,7 @@ function bonemeal()
       elseif not turtle.place() then
         term.clear()
         term.setCursorPos(1,1)
-        print("||  You have no saplings?         ||")
+        print("||  Not able to place sapling..   ||")
         print("||                                ||")
         print("||  Can somepony please hand me   ||")
         print("||  Some saplings?                ||")
@@ -69,7 +118,7 @@ function bonemeal()
     turtle.select(1)
 	term.clear()
 	term.setCursorPos(1,3)
-	print("  Turlte is now chopping tree") 
+	print("  Turtle is now chopping tree") 
 	print("  please wait...     ") 
   end	
   
@@ -94,6 +143,7 @@ while 1 do
     moarleaves()
     turtle.turnRight()
     moarleaves()
+    turtle.turnRight()
   end
 
   while not turtle.detectDown() do
@@ -105,5 +155,5 @@ while 1 do
   term.clear()
   term.setCursorPos(1,1)
   print("Current fuel level remaining: " ,turtle.getFuelLevel())
-  sleep(1)
+  moarBoneMeal()
 end
