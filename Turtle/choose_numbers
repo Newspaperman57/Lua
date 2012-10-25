@@ -1,0 +1,125 @@
+line1 = 0
+number1 = 0
+number2	= 0
+
+function howto()
+	  print("Estimatet number of material needed to")
+	  print("create plate",number1*number2+1)
+	  print("To increase: d")
+	  print("To decrease: a")
+	  print("To length  : w")
+	  print("To width   : s")
+	  print("To create the plate, with the selected") 
+	  print("size: e")
+end
+
+function onetwo()
+	  if line1 == 0 then
+		line1 = line1 +1
+	  elseif line1 == 2 then
+		line1 = line1 -1
+	  end
+end
+
+function clear()
+	term.clear()
+	term.setCursorPos(1,2)
+end
+
+function counter()
+  while 1 do
+    if line1 == 0 then 
+		clear()
+		print("      [ length: ",number1," ]")
+		print("         width: ",number2,"   ")
+		howto()
+	elseif line1 == 1 then
+		clear()
+		print("        length: ",number1)
+		print("      [  width: ",number2," ] ")
+		howto()
+	end
+	event, key = os.pullEvent()
+	if line1 == 0 then
+	  if key == 32 then
+		number1 = number1 +1
+		elseif key == 30 then
+		number1 = number1 -1
+		elseif key == 31 then
+		line1 = line1 +1
+		end
+	elseif line1 == 1 then
+		if key == 32 then 
+		  number2 = number2 +1
+		  elseif key == 30 then
+		  number2 = number2 -1
+		  elseif key == 17 then
+		  line1 = line1 -1
+		end
+	  elseif key == 18 then
+      break()
+	end
+  end
+end
+
+function ifonetwo()
+  if number == 1 then
+    number = number +1
+  elseif number == 2 then
+    number = number -1
+  end
+end
+
+function turn()
+  if number == 1 then
+    turtle.turnRight()
+	while not turtle.forward() do
+	  sleep()
+	end
+    turtle.turnRight()
+    else
+    turtle.turnLeft()
+	while not turtle.forward() do
+	  sleep()
+	end
+    turtle.turnLeft()
+  end
+  turtle.placeDown()
+  ifonetwo()
+end  
+
+function forward()
+  while not turtle.placeDown() do
+    if not turtle.detectDown() then
+	  sleep(1)
+	end
+  end
+  else
+  while not turtle.forward() do
+  sleep()
+end
+
+
+function place()
+  for i = 1,number1 do
+    for i = 1,number2 do
+      if not turtle.detectDown() then
+	    while not turtle.placeDown() do
+		  sleep(1)
+		end
+	    else
+	    while not turtle.forward() do
+	      sleep()
+  	    end
+      end
+    end
+    turn()
+  end
+end
+    
+-- her sker tingene
+
+number = 1
+counter()
+place()
+
