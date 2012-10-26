@@ -31,7 +31,7 @@ function counter()
 	if key == 33 then 
 		finnish()
 	end
-	if line1 == 0 or 1 then
+	if line1 == 0 or line1 == 1 then
 	    if key == 31 then
 			line1 = line1 +1
 		end
@@ -91,7 +91,7 @@ function splat()
 
 end
 
--- Her starter selve tingene
+-- Her starter selve tingene --
 timer = 1
 line1 = 0
 number = 0
