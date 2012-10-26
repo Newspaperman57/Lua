@@ -1,8 +1,10 @@
 --( ComputerCraft coding )--
 =====================
+Please use the new repo "CC" because of problems with sync.
+\n\n
 This Repository is primary for Computercraft Programs and Projekts.
 Persons who have Read+Write acces:
-mathias Pihl(Admin)
-Anton Christensen(Computer Science Guru)
-Cliff(Contributer)
-Lasse(Contributer)
+\n mathias Pihl(Admin)
+\n Anton Christensen(Computer Science Guru)
+\n Cliff(Contributer)
+\n Lasse(Contributer)
