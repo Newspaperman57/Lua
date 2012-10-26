@@ -1,0 +1,98 @@
+function finnish()
+end
+ 
+function clear()
+	term.clear()
+	term.setCursorPos(1,2)
+end
+
+function howto()
+	  term.setCursorPos(1,5)
+	  print("Press 's' to change de difficulty!")
+	  print("To abbort press: 'f' ")
+	  print("To start the game push 'spacebar'")
+end
+
+function counter()
+	if line1 == 0 then 
+		clear()
+		print("difficulty = 1 (start with 1.3 seconds per frame)")
+		howto()
+	elseif line1 == 1 then
+		clear()
+		print("difficulty = 2 (start with  1  seconds per frame)")
+		howto()
+	elseif line1 == 2 then
+		clear()
+		print("difficulty = 3 (start with 0.7 seconds per frame)")
+		howto()
+	end
+	event, key = os.pullEvent()
+	if key == 33 then 
+		finnish()
+	end
+	if line1 == 0 or 1 then
+	    if key == 31 then
+			line1 = line1 +1
+		end
+	elseif line1 == 1 then
+		if key == 31 then
+			line1 = line1 +1
+		end
+	elseif line1 == 2 then
+	    if key == 31 then
+			line1 = line1 -2
+		end
+	end
+	if key == 57 then
+		start()
+	end
+	counter()
+end
+		
+function start()		
+	if line1 == 0 then
+		difficulty = 1
+	elseif line1 == 1 then
+		difficulty = 2
+	elseif line1 == 2 then
+		difficulty = 3
+	end
+	countdown()
+end
+
+function diff()
+	number = number + 0.05
+	if number == 1 then 
+		number = number - number
+		distance()
+		timer = timer * 0,99  
+		countdown()
+        print(timer)		
+	end
+end
+
+function countdown()
+  if difficulty == 1 then
+    timer = timer - 0.3
+  elseif difficulty == 3 then
+    timer = timer + 0.3
+  end
+  sleep(0.05)
+  diff()
+end
+
+function distance()
+  measure = 20
+  measure = measure -1
+end
+
+function splat() 
+
+end
+
+-- Her starter selve tingene
+timer = 1
+line1 = 0
+number = 0
+counter()
