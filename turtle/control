@@ -51,8 +51,8 @@ function refuel()
 	print("######################################")
 	print("#                                    #")
 	print("#                                    #")
-	print("# Please enter                       #")
-	print("# Amount of items to refuel:         #")
+	print("#   Please enter                     #")
+	print("#   Amount of items to refuel:       #")
 	print("#                                    #")
 	print("#                                    #")
 	print("######################################")
@@ -125,7 +125,7 @@ function excavate()
 	print("# Please enter number for the        #")
 	print("# excavating program.                #")
 	print("#                                    #")
-	print("# Enter a letter to go back :    	#")
+	print("# Enter a letter to go back :        #")
 	print("#                                    #")
 	print("#                                    #")
 	print("######################################")
@@ -174,21 +174,21 @@ while 1 do
   print("Current page: ", page, "/", totalPages) 
 
   event, key = os.pullEvent()
-  if key == 17 then forward() 					-- W
-    elseif key == 31 then backwards()			-- S
-    elseif key == 30 then turtle.turnLeft()		-- A
-    elseif key == 32 then turtle.turnRight()	-- D
-	elseif key == 57 then up()					-- SPACEBAR
-	elseif key == 44 then down()				-- Z
-    elseif key == 18 then digDirection() 		-- E
-    elseif key == 25 then placeDirection()		-- P
-    elseif key == 46 then turtle.craft()		-- C
-    elseif key == 19 then refuel()				-- R
-    elseif key == 38 then shell.run("chopTree")	-- L
-    elseif key == 45 then excavate()			-- X
-    elseif key == 16 then select()				-- Q
-	elseif key == 20 then terminate()			-- T
-    elseif key == 79 or key == 2 then page = 1  -- 1 OR [NUM_1]
-    elseif key == 80 or key == 3 then page = 2	-- 2 OR [NUM_2]
+  if key == 17 then forward() 				-- W
+  	elseif key == 31 then backwards()		-- S
+  	elseif key == 30 then turtle.turnLeft()		-- A
+  	elseif key == 32 then turtle.turnRight()	-- D
+  	elseif key == 57 then up()			-- SPACEBAR 
+  	elseif key == 44 then down()			-- Z
+  	elseif key == 18 then digDirection() 		-- E
+  	elseif key == 25 then placeDirection()		-- P
+  	elseif key == 46 then turtle.craft()		-- C
+  	elseif key == 19 then refuel()			-- R
+  	elseif key == 38 then shell.run("chopTree")	-- L
+  	elseif key == 45 then excavate()		-- X
+  	elseif key == 16 then select()			-- Q
+  	elseif key == 20 then terminate()		-- T
+  	elseif key == 79 or key == 2 then page = 1  -- 1 OR [NUM_1]
+  	elseif key == 80 or key == 3 then page = 2	-- 2 OR [NUM_2]
   end
 end
