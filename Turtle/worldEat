@@ -77,6 +77,20 @@ function forward()
   turtle.turnRight()
   turtle.dig()
 end
+
+function toTheBottom()
+	diggedBlocks  = 0
+	notBottom = true
+	while notBottom do
+		if turtle.detectDown() then
+			if turtle.digDown() then
+				diggedBlocks = diggedBlocks + 1
+			else
+				notBottom = false
+		end
+	end
+end
+
 c = 0
 a = 1
 while true do 
