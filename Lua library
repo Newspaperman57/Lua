@@ -1,9 +1,9 @@
 function getSpace()
-  while turtle.getItemCount(blob) == 0 do
-	blob = blob +1
-	if blob == 16 then
-	  blob = blob - blob +1
+	while turtle.getItemCount(blob) == 0 do
+		blob = blob +1
+		if blob == 16 then
+			blob = blob - blob +1
+		end
+		turtle.select(blob)
 	end
-    turtle.select(blob)
-  end
 end
