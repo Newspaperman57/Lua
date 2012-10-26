@@ -1,0 +1,64 @@
+placedBlock = 0
+turny = "right"
+turtle.select(1)
+selectedSlot = 1
+
+function place()
+  local boolean = turtle.placeDown()
+  if not boolean then
+    while turtle.getItemCount(selectedSlot) == 0 do
+      selectedSlot = selectedSlot + 1
+      turtle.select(selectedSlot)
+    end
+  end
+  if boolean then
+    placedBlock = placedBlock + 1
+  end
+end
+
+function turn()
+    if turny == "right" then
+    turtle.turnRight()
+    place()
+    turtle.forward()
+    turtle.turnRight()
+    turny = "left"
+  elseif turny == "left" then
+    turtle.turnLeft()
+    place()
+    turtle.forward()
+    turtle.turnLeft()
+    turny = "right" 
+  end
+end
+
+function buildPlate(len, wid)
+  turtle.select(1)
+  widCnt = wid
+  lenCnt = len
+  while 0 < widCnt do
+    while 1 < lenCnt do
+      place()
+      turtle.forward()
+      lenCnt = lenCnt - 1
+    end
+    widCnt = widCnt - 1
+    lenCnt = len
+  turn()
+  end
+end
+write("Lenght: ")
+length = tonumber(read())
+write("Width: ")
+width = tonumber(read())
+fuelUse = length * width
+if fuelUse > turtle.getFuelLevel() then
+  print("Check if there is enough fuel...")
+  print("Press any key to continue or press T to end program...")
+  niller, key = os.pullEvent()
+  if key == 20 then
+    print("Stopping Program...")
+    error()
+  end
+end
+buildPlate(length, width)
