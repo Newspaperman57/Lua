@@ -14,77 +14,69 @@ function howto()
 end
 
 function counter()
-	if line1 == 0 then 
-		clear()
-		print("difficulty = 1 (start with 1.3 seconds per frame)")
-		howto()
-	elseif line1 == 1 then
-		clear()
-		print("difficulty = 2 (start with  1  seconds per frame)")
-		howto()
-	elseif line1 == 2 then
-		clear()
-		print("difficulty = 3 (start with 0.7 seconds per frame)")
-		howto()
-	end
-	event, key = os.pullEvent()
-	if key == 33 then 
-		finnish()
-	end
-	if line1 == 0 or line1 == 1 then
-	    if key == 31 then
-			line1 = line1 +1
+	while notStarting do
+		if line1 == 0 then 
+			clear()
+			print("difficulty = 1 (start with 1.3 seconds per frame)")
+			howto()
+		elseif line1 == 1 then
+			clear()
+			print("difficulty = 2 (start with  1  seconds per frame)")
+			howto()
+		elseif line1 == 2 then
+			clear()
+			print("difficulty = 3 (start with 0.7 seconds per frame)")
+			howto()
 		end
-	elseif line1 == 1 then
-		if key == 31 then
-			line1 = line1 +1
+		event, key = os.pullEvent()
+		if key == 33 then  -- t?
+			finnish()
 		end
-	elseif line1 == 2 then
-	    if key == 31 then
-			line1 = line1 -2
+		if key == 31 then -- s
+			if line1 >= 2 then
+				line1 = 0
+			else
+				line1 = line1 + 1
+			end
+		end
+		if key == 57 then
+			notStarting = true
 		end
 	end
-	if key == 57 then
-		start()
-	end
-	counter()
+	start()
 end
 		
 function start()		
-	if line1 == 0 then
-		difficulty = 1
-	elseif line1 == 1 then
-		difficulty = 2
-	elseif line1 == 2 then
-		difficulty = 3
-	end
+	difficulty = line1 + 1
 	countdown()
 end
 
 function diff()
+	-- Thinking there must be missing a while/for loop here?
 	number = number + 0.05
-	if number == 1 then 
-		number = number - number
+	if number == 1 then -- number = 0.05. this will never be true, because of no while/for loop.
+		number = 0 --number - number
 		distance()
 		timer = timer * 0,99  
-		countdown()
+		countdown() -- Why called again? Requires optimizing...
         print(timer)		
 	end
 end
 
 function countdown()
-  if difficulty == 1 then
-    timer = timer - 0.3
-  elseif difficulty == 3 then
-    timer = timer + 0.3
-  end
-  sleep(0.05)
-  diff()
+	if difficulty == 1 then
+		timer = timer - 0.3
+	elseif difficulty == 3 then
+		timer = timer + 0.3
+	end
+	sleep(0.05)
+	diff() -- (It's up there ^^)
 end
 
 function distance()
-  measure = 20
-  measure = measure -1
+	--measure = 20
+	--measure = measure -1
+	measure = 19
 end
 
 function splat() 
@@ -92,6 +84,7 @@ function splat()
 end
 
 -- Her starter selve tingene --
+notStarting = false
 timer = 1
 line1 = 0
 number = 0

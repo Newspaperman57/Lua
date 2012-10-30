@@ -1,35 +1,67 @@
-placedBlock = 0
-turny = "right"
-turtle.select(1)
-selectedSlot = 1
+
+function clearAndPrint(txt)
+	term.clear()
+	term.setCursorPos(1,1)
+	print(txt)
+end
+
+function clearAndWrite(txt)
+	term.clear()
+	term.setCursorPos(1,1)
+	write(txt)
+end
+
+function goForward()
+	--turtle.forward()
+	while turtle.forward() == false do
+		if turtle.dig() == true then
+			sleep(0.8)
+			goForward()
+			--break()
+		else
+			clearAndPrint("Some dErP animal in the way!")
+			os.pullEvent()
+		end
+	end
+end
 
 function place()
-  local boolean = turtle.placeDown()
-  if not boolean then
-    while turtle.getItemCount(selectedSlot) == 0 do
-      selectedSlot = selectedSlot + 1
-      turtle.select(selectedSlot)
-    end
-  end
-  if boolean then
-    placedBlock = placedBlock + 1
-  end
+	local boolean = turtle.placeDown()
+	if not boolean then
+		selectedSlot = 1
+		while turtle.getItemCount(selectedSlot) == 0 do
+			if selectedSlot < maxSlots then
+				selectedSlot = selectedSlot + 1
+				turtle.select(selectedSlot)
+			else
+				clearAndPrint("No items left! Please put in some!")
+				print("Press any key to continue")
+				os.pullEvent()
+				selectedSlot = 1
+			end
+		end
+	end
+	if boolean then
+		placedBlock = placedBlock + 1
+	else
+		place()
+	end
 end
 
 function turn()
     if turny == "right" then
-    turtle.turnRight()
-    place()
-    turtle.forward()
-    turtle.turnRight()
-    turny = "left"
-  elseif turny == "left" then
-    turtle.turnLeft()
-    place()
-    turtle.forward()
-    turtle.turnLeft()
-    turny = "right" 
-  end
+		turtle.turnRight()
+		place()
+		goForward()
+		turtle.turnRight()
+		turny = "left"
+	elseif turny == "left" then
+		turtle.turnLeft()
+		place()
+		goForward()
+		turtle.turnLeft()
+		turny = "right" 
+	end
 end
 
 function buildPlate(len, wid)
@@ -39,7 +71,7 @@ function buildPlate(len, wid)
   while 0 < widCnt do
     while 1 < lenCnt do
       place()
-      turtle.forward()
+      goForward()
       lenCnt = lenCnt - 1
     end
     widCnt = widCnt - 1
@@ -47,18 +79,39 @@ function buildPlate(len, wid)
   turn()
   end
 end
+
+-- Initializing --
+placedBlock = 0
+turny = "right"
+turtle.select(1)
+selectedSlot = 1
+if os.version() == "TurtleOS 1.3" then
+	maxSlots = 9
+	useFuel = false
+elseif os.version() == "TurtleOS 1.4" then
+	maxSlots = 16
+	useFuel = true
+else
+	clearAndPrint("Unknown OS: ", os.version())
+	error()
+end
+-- Initiating done
+term.clear()
+term.setCursorPos(1,1)
 write("Lenght: ")
 length = tonumber(read())
 write("Width: ")
 width = tonumber(read())
-fuelUse = length * width
-if fuelUse > turtle.getFuelLevel() then
-  print("Check if there is enough fuel...")
-  print("Press any key to continue or press T to end program...")
-  niller, key = os.pullEvent()
-  if key == 20 then
-    print("Stopping Program...")
-    error()
-  end
+if useFuel then
+	fuelUse = length * width
+	if fuelUse > turtle.getFuelLevel() then
+		clearAndPrint("Check if there is enough fuel...")
+		print("Press any key to continue or T to end program...")
+		niller, key = os.pullEvent()
+		if key == 20 then -- t
+			print("Stopping Program...")
+			error()
+		end
+	end
 end
 buildPlate(length, width)

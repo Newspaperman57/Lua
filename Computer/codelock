@@ -37,13 +37,13 @@ function answer1_correct()
 end
 --MAIN--------------------------------
 
-	term.clear()
-	print("Navn?")
-	status, answer = pcall(read)
-	if answer == ondskab then
-		answer1_correct()
-	else 
-		answer_wrong()
-	end
-	status, status1 = pcall(sleep, sleeptime1)
-	os.shutdown()
+term.clear()
+print("Navn?")
+status, answer = pcall(read)
+if answer == ondskab then
+	answer1_correct()
+else 
+	answer_wrong()
+end
+status, status1 = pcall(sleep, sleeptime1)
+os.shutdown()

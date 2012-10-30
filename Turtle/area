@@ -15,21 +15,21 @@ function howto()
 end
 
 function onetwo()
-	  if line1 == 0 then
+	if line1 == 0 then
 		line1 = line1 +1
-	  elseif line1 == 2 then
+	elseif line1 == 2 then
 		line1 = line1 -1
-	  end
+	end
 end
 
 function getSpace()
-  while turtle.getItemCount(blob) == 0 do
-	blob = blob +1
-	if blob == 16 then
-	  blob = blob - blob +1
+	while turtle.getItemCount(blob) == 0 do
+		blob = blob +1
+		if blob == 16 then
+			blob = blob - blob +1
+		end
+		turtle.select(blob)
 	end
-    turtle.select(blob)
-  end
 end
 
 function clear()
@@ -38,49 +38,49 @@ function clear()
 end
 
 function counter()
-  while 1 do
-    if line1 == 0 then 
-		clear()
-		print("      [  width: ",number1," ]")
-		print("        length: ",number2,"   ")
-		howto()
-	elseif line1 == 1 then
-		clear()
-		print("         width: ",number1)
-		print("      [ length: ",number2," ] ")
-		howto()
+	while 1 do
+		if line1 == 0 then 
+			clear()
+			print("      [  width: ",number1," ]")
+			print("        length: ",number2,"   ")
+			howto()
+		elseif line1 == 1 then
+			clear()
+			print("         width: ",number1)
+			print("      [ length: ",number2," ] ")
+			howto()
+		end
+		event, key = os.pullEvent()
+		if line1 == 0 then
+			if key == 32 then
+				number1 = number1 +2
+			elseif key == 30 then
+				number1 = number1 -2
+			elseif key == 31 then
+				line1 = line1 +1
+			elseif key == 18 then
+				place()	
+			end
+		elseif line1 == 1 then
+			if key == 32 then 
+				number2 = number2 +2
+			elseif key == 30 then
+				number2 = number2 -2
+			elseif key == 17 then
+				line1 = line1 -1
+			elseif key == 18 then
+				place()		
+			end
+		end
 	end
-	event, key = os.pullEvent()
-	if line1 == 0 then
-	  if key == 32 then
-		number1 = number1 +2
-		elseif key == 30 then
-		number1 = number1 -2
-		elseif key == 31 then
-		line1 = line1 +1
-		elseif key == 18 then
-        place()	
-      end
-	elseif line1 == 1 then
-	  if key == 32 then 
-		number2 = number2 +2
-		elseif key == 30 then
-		number2 = number2 -2
-		elseif key == 17 then
-		line1 = line1 -1
-		elseif key == 18 then
-        place()		
-	  end
-    end
-  end
 end
 
 function ifonetwo()
-  if number == 1 then
-    number = number +1
-  elseif number == 2 then
-    number = number -1
-  end
+	if number == 1 then
+		number = number +1
+	elseif number == 2 then
+		number = number -1
+	end
 end
 
 function turn()
@@ -97,26 +97,26 @@ function turn()
 end  
 
 function forward()
-  if not turtle.detectDown() then
-    while not turtle.placeDown() do
-      sleep(1)
-      getSpace()
-	  forward()
-    end
-  elseif turtle.detectDown() then
-	while not turtle.forward() do
-      sleep(1)
-    end
-  end
+	if not turtle.detectDown() then
+		while not turtle.placeDown() do
+			sleep(1)
+			getSpace()
+			forward()
+		end
+	elseif turtle.detectDown() then
+		while not turtle.forward() do
+			sleep(1)
+		end
+	end
 end
 
 function place()
-  for i = 1, number1 do
-    for i = 2, number2 do
-	  forward() 
-    end
-    turn() 
-  end
+	for i = 1, number1 do
+		for i = 2, number2 do
+			forward() 
+		end
+		turn() 
+	end
 end
     
 -- her sker tingene
