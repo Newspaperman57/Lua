@@ -1,0 +1,427 @@
+
+function whereto()
+	local random = math.random(1,y/3)
+	if random == 3 then
+		local anumber = math.random(1,x)
+		if a == 0 then
+			a = a +1
+			aa = aa -aa +anumber
+			elseif b == 0 then
+			b = b +1
+			bb = bb -bb +anumber
+			elseif c == 0 then
+			c = c +1
+			cc = cc -cc +anumber
+			elseif d == 0 then
+			d = d +1
+			dd = dd -dd +anumber
+			elseif e == 0 then	
+			e = e +1
+			ee = ee -ee +anumber
+			elseif f == 0 then
+			f = f +1
+			ff = ff -ff +anumber
+			elseif g == 0 then
+			g = g +1
+			gg = gg -gg +anumber
+			elseif h == 0 then
+			h = h +1
+			hh = hh -hh +anumber
+			elseif i == 0 then
+			i = i +1
+			ii = ii -ii +anumber
+			elseif j == 0 then
+			j = j +1
+			jj = jj -jj +anumber
+			elseif k == 0 then
+			k = k +1
+			kk = kk -kk +anumber
+			elseif l == 0 then
+			l = l +1
+			ll = ll -ll +anumber
+			elseif m == 0 then
+			m = m +1
+			mm = mm -mm+anumber
+			elseif n == 0 then
+			n = n +1
+			nn = nn -nn +anumber
+			elseif o == 0 then
+			o = o +1
+			oo = oo -oo +anumber
+			elseif p == 0 then
+			p = p +1
+			pp = pp -pp +anumber
+			elseif q == 0 then
+			q = q +1
+			qq = qq -qq +anumber
+			elseif r == 0 then
+			r = r +1
+			rr = rr -rr +anumber
+			elseif rs == 0 then
+			s = s +1
+			ss = ss -ss +anumber
+			elseif t == 0 then
+			t = t +1
+			tt = tt -tt +anumber
+			elseif u == 0 then
+			u = u +1
+			uu = uu -uu +anumber
+		end
+	end	
+end
+
+function dot1()
+	if a > 0 then
+		term.setCursorPos(aa,a)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(aa,a-y/3)
+		write(" ")
+		a = a +1
+		if a == y+y +11 then
+			a = a -a 
+		end
+	end	
+end
+
+function dot2()
+	if b > 0 then
+		term.setCursorPos(bb,b)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(bb,b-y/3)
+		write(" ")
+		b = b +1
+		if b == y+y then
+			b = b -b 
+		end
+	end	
+end
+
+function dot3()
+	if c > 0 then
+		term.setCursorPos(cc,c)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(cc,c-y/3)
+		write(" ")
+		c = c +1
+		if c == y+y +11 then
+			c = c -c 
+		end
+	end	
+end
+
+function dot4()
+	if d > 0 then
+		term.setCursorPos(dd,d)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(dd,d-y/3)
+		write(" ")
+		d = d +1
+		if d == y+y +11 then
+			d = d -d 
+		end
+	end	
+end
+
+function dot5()
+	if e > 0 then
+		term.setCursorPos(ee,e)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(ee,e-y/3)
+		write(" ")
+		e = e +1
+		if e == y+y +11 then
+			e = e -e 
+		end
+	end	
+end
+
+function dot6()
+	if f > 0 then
+		term.setCursorPos(ff,f)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(ff,f-y/3)
+		write(" ")
+		f = f +1
+		if f == y+y +11 then
+			f = f -f 
+		end
+	end	
+end
+
+function dot7()
+	if g > 0 then
+		term.setCursorPos(gg,g)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(gg,g-y/3)
+		write(" ")
+		g = g +1
+		if g == y+y +11 then
+			g = g -g 
+		end
+	end	
+end
+
+function dot8()
+	if h > 0 then
+		term.setCursorPos(hh,h)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(hh,h-y/3)
+		write(" ")
+		h = h +1
+		if h == y+y +11 then
+			h = h -h 
+		end
+	end	
+end
+
+function dot9()
+	if i > 0 then
+		term.setCursorPos(ii,i)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(ii,i-y/3)
+		write(" ")
+		i = i +1
+		if i == y+y +11 then
+			i = i -i 
+		end
+	end	
+end
+
+function dot10()
+	if u > 0 then
+		term.setCursorPos(uu,u)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(uu,u-y/3)
+		write(" ")
+		u = u +1
+		if u == y+y +11 then
+			u = u - u 
+		end
+	end	
+end
+
+function dot11()
+	if j > 0 then
+		term.setCursorPos(jj,j)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(jj,j-y/3)
+		write(" ")
+		j = j +1
+		if j == y+y +11 then
+			j = j - j 
+		end
+	end	
+end
+
+function dot12()
+	if k > 0 then
+		term.setCursorPos(kk,k)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(kk,k-y/3)
+		write(" ")
+		k = k +1
+		if k == k+k +11 then
+			k = k - k 
+		end
+	end	
+end
+
+function dot13()
+	if l > 0 then
+		term.setCursorPos(ll,l)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(ll,l-y/3)
+		write(" ")
+		l = l +1
+		if l == y+y +11 then
+			l = l - l 
+		end
+	end	
+end
+
+function dot14()
+	if n > 0 then
+		term.setCursorPos(nn,n)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(nn,n-y/3)
+		write(" ")
+		n = n +1
+		if n == y+y +11 then
+			n = n - n 
+		end
+	end	
+end
+
+function dot15()
+	if o > 0 then
+		term.setCursorPos(oo,o)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(oo,o-y/3)
+		write(" ")
+		o = o +1
+		if o == y+y +11 then
+			o = o - o 
+		end
+	end	
+end
+
+function dot16()
+	if p > 0 then
+		term.setCursorPos(pp,p)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(pp,p-y/3)
+		write(" ")
+		p = p +1
+		if p == y+y +11 then
+			p = p - p 
+		end
+	end	
+end
+
+function dot17()
+	if q > 0 then
+		term.setCursorPos(qq,q)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(qq,q-y/3)
+		write(" ")
+		q = q +1
+		if q == y+y +11 then
+			q = q - q 
+		end
+	end	
+end
+
+function dot18()
+	if r > 0 then
+		term.setCursorPos(rr,r)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(rr,r-y/3)
+		write(" ")
+		r = r +1
+		if r == y+y +11 then
+			r = r - r 
+		end
+	end	
+end
+
+function dot19()
+	if s > 0 then
+		term.setCursorPos(ss,s)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(ss,s-y/3)
+		write(" ")
+		s = s +1
+		if s == y+y +11 then
+			s = s - s 
+		end
+	end	
+end
+
+function dot20()
+	if t > 0 then
+		term.setCursorPos(tt,t)
+		local nr = math.random(1,9)
+	    write(nr)
+		term.setCursorPos(tt,t-y/3)
+		write(" ")
+		t = t +1
+		if t == y+y +11 then
+			t = t - t 
+		end
+	end	
+end
+
+a = 0
+aa = 0
+b = 0
+bb = 0
+c = 0
+cc = 0
+d = 0
+dd = 0
+e = 0
+ee = 0
+f = 0
+ff = 0
+g = 0
+gg = 0
+h = 0
+hh = 0
+i = 0
+ii = 0
+j = 0
+jj = 0
+k = 0
+kk = 0
+l = 0
+ll = 0
+m = 0
+mm = 0
+n = 0
+nn = 0
+o = 0
+oo = 0
+p = 0
+pp = 0
+q = 0
+qq = 0
+r = 0
+rr = 0
+u = 0
+uu = 0
+s = 0
+ss = 0
+t = 0
+tt = 0
+function thematrix()
+	x , y = term.getSize()
+	y = y + 11
+	for i = 1,10 do
+		whereto()
+	end
+	dot1()
+	dot2()
+	dot3()
+	dot4()
+	dot5()
+	dot6()
+	dot7()
+	dot8()
+	dot9()
+	dot10()
+	dot11()
+	dot12()
+	dot13()
+	dot14()
+	dot15()
+	dot16()
+	dot17()
+	dot18()
+	dot19()
+	dot20()
+	sleep(0.2)
+end
+
+term.redirect(peripheral.wrap("top"))
+while 1 do 
+	thematrix()
+end

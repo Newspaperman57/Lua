@@ -1,0 +1,25 @@
+i = 1
+derp = 1
+term.clear()
+while 1 do
+term.redirect(peripheral.wrap("top"))
+x, y = term.getSize()
+y = y - 1
+  local nr1 = math.random(1,9,"Wallah")
+  local nr2 = math.random(1,x)
+  local nr3 = math.random(1,y)
+  term.setCursorPos(nr2, nr3)
+if derp == 1 then
+  print(nr1)
+  derp = 0
+else
+  print(" ")
+  derp = 1
+end  
+if i > 1 then
+  i = 1
+  sleep(0)
+else
+  i = i + 1
+end
+end
