@@ -73,12 +73,12 @@ end
 function dot1()
 	if a > 0 then
 		term.setCursorPos(aa,a)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(aa,a-y/3)
 		write(" ")
 		a = a +1
-		if a == y+y +11 then
+		if a == y+y then
 			a = a -a 
 		end
 	end	
@@ -87,8 +87,8 @@ end
 function dot2()
 	if b > 0 then
 		term.setCursorPos(bb,b)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(bb,b-y/3)
 		write(" ")
 		b = b +1
@@ -101,8 +101,8 @@ end
 function dot3()
 	if c > 0 then
 		term.setCursorPos(cc,c)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(cc,c-y/3)
 		write(" ")
 		c = c +1
@@ -115,8 +115,8 @@ end
 function dot4()
 	if d > 0 then
 		term.setCursorPos(dd,d)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(dd,d-y/3)
 		write(" ")
 		d = d +1
@@ -129,8 +129,8 @@ end
 function dot5()
 	if e > 0 then
 		term.setCursorPos(ee,e)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(ee,e-y/3)
 		write(" ")
 		e = e +1
@@ -143,8 +143,8 @@ end
 function dot6()
 	if f > 0 then
 		term.setCursorPos(ff,f)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(ff,f-y/3)
 		write(" ")
 		f = f +1
@@ -157,8 +157,8 @@ end
 function dot7()
 	if g > 0 then
 		term.setCursorPos(gg,g)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(gg,g-y/3)
 		write(" ")
 		g = g +1
@@ -171,8 +171,8 @@ end
 function dot8()
 	if h > 0 then
 		term.setCursorPos(hh,h)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(hh,h-y/3)
 		write(" ")
 		h = h +1
@@ -185,8 +185,8 @@ end
 function dot9()
 	if i > 0 then
 		term.setCursorPos(ii,i)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(ii,i-y/3)
 		write(" ")
 		i = i +1
@@ -199,8 +199,8 @@ end
 function dot10()
 	if u > 0 then
 		term.setCursorPos(uu,u)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(uu,u-y/3)
 		write(" ")
 		u = u +1
@@ -213,8 +213,8 @@ end
 function dot11()
 	if j > 0 then
 		term.setCursorPos(jj,j)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(jj,j-y/3)
 		write(" ")
 		j = j +1
@@ -227,8 +227,8 @@ end
 function dot12()
 	if k > 0 then
 		term.setCursorPos(kk,k)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(kk,k-y/3)
 		write(" ")
 		k = k +1
@@ -241,8 +241,8 @@ end
 function dot13()
 	if l > 0 then
 		term.setCursorPos(ll,l)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(ll,l-y/3)
 		write(" ")
 		l = l +1
@@ -255,8 +255,8 @@ end
 function dot14()
 	if n > 0 then
 		term.setCursorPos(nn,n)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(nn,n-y/3)
 		write(" ")
 		n = n +1
@@ -269,8 +269,8 @@ end
 function dot15()
 	if o > 0 then
 		term.setCursorPos(oo,o)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(oo,o-y/3)
 		write(" ")
 		o = o +1
@@ -283,8 +283,8 @@ end
 function dot16()
 	if p > 0 then
 		term.setCursorPos(pp,p)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(pp,p-y/3)
 		write(" ")
 		p = p +1
@@ -297,8 +297,8 @@ end
 function dot17()
 	if q > 0 then
 		term.setCursorPos(qq,q)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(qq,q-y/3)
 		write(" ")
 		q = q +1
@@ -311,8 +311,8 @@ end
 function dot18()
 	if r > 0 then
 		term.setCursorPos(rr,r)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(rr,r-y/3)
 		write(" ")
 		r = r +1
@@ -325,8 +325,8 @@ end
 function dot19()
 	if s > 0 then
 		term.setCursorPos(ss,s)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(ss,s-y/3)
 		write(" ")
 		s = s +1
@@ -339,8 +339,8 @@ end
 function dot20()
 	if t > 0 then
 		term.setCursorPos(tt,t)
-		local nr = math.random(1,9)
-	    write(nr)
+		local nr = math.random(33,126)
+	    write(string.char(nr))
 		term.setCursorPos(tt,t-y/3)
 		write(" ")
 		t = t +1
